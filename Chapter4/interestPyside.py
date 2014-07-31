@@ -1,23 +1,18 @@
+# coding: utf-8
 '''
 interestPyside.py
-One person's attempt to solve the exercise at the end of Chapter 4
+One possible solution to the exercise at the end of Chapter 4
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
-It is adapted from the currency example in the chapter.
 
 Usage:
 Run the module, and then play around with your money!
 
-Notes
-Annotations include comments and links to relevant documentation. When possible,
-PySide documentation is linked, but sometimes we have to go with Qt, as PySide
-documentation is way behind.
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
 
-Most recent version can be pulled from GitHub:
-XXXXX
-Especially interested in improving Pythonicity of code.
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
 
-To do:
-1. Move repeated comments to readme
 '''
 
 from PySide import QtGui, QtCore

@@ -1,28 +1,24 @@
+# coding: utf-8
 '''
 currencyPyside.py
 Heavily annotated PySide adaptation of currency.pyw from Chapter 4
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 
 A currency converter laid out using gridlayout, where exchange rates are pulled from online.
-The top row of widgets is the "from" row, which describes what kind of currency you have, and
-how much you want to "sell". This currency amount is controllable using a spinbox. The second
-"to" row is the derived currency, which shows how much you would receive in exchange for the
-base currency amount you set.
-
-Main goal: our final in our whirlwind tour of PyQt. THis shows a few new widgets and their signals,
-the use of grid layout, and general demonstration of how to implement a GUI with more moving parts.
 
 Usage:
 Run the module, and then play around to find out how much you can sell your money for
 (e.g., in Croatia).
 
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
+
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
+
 '''
 
 from PySide import QtGui, QtCore
-#Qt subclasses we use in this program:
-#QtCore: Qt
-#QtGui: QApplication, QComboBox, QDialog, QDoubleSpinBox, QGridLayout, QLabel
-
 import sys
 import urllib2
 
@@ -32,9 +28,6 @@ class Form(QtGui.QDialog):
         QtGui.QDialog.__init__(self, parent)
         self.setWindowTitle("Sell your money!")
 
-        #Get data about exchange rates
-        #Note variables like date are not set as properties of self, as we do not use them outside this __init__ method.
-        #The comboxes and such below, we do use in the other methods, so they are set as properties of self.
         date = self.getdata()  #adds self.rates dictionary (key: name of currency, value: exchange rates)
         currencyTypes = sorted(self.rates.keys())  #pull keys (name of currency) and sorts them
 
@@ -104,9 +97,9 @@ class Form(QtGui.QDialog):
         except Exception, e:  #if something was wrong with the network connection
             return "Failed to download:\n{0}".format(e)
 
-
-app = QtGui.QApplication(sys.argv)
-form = Form()
-form.show()
-sys.exit(app.exec_())
+if __name__ == "__main__":
+    app = QtGui.QApplication(sys.argv)
+    form = Form()
+    form.show()
+    sys.exit(app.exec_())
 

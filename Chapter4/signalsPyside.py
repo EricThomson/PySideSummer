@@ -11,28 +11,20 @@ Forms 1 and 2 (inputs 1 and 2, respectively)
 A spinbox and dial are reciprically connected using built-in signals and built-in
 slots. In PySide, Forms 1 and 2 are identical, but as you can see if you look at 
 the commented out old-style code, they were used by Summerfield to show two different 
-ways of connecting to a slot.
+old-style ways of connecting to a slot.
 
 Form 3 (input 3)
-Similar to previous, but now when we subclass spinbox, creating a new class, 
-ZeroSpinBox such that when its value changes, it is connected to a custom slot
-(checkzero). Checkzero checks whether the spinbox reads zero, and if it does, a counter
-increases, and a custom signal is emitted (the atzero signal). Unlike in 
-old-style signals and slots, this custom signal is independently declared. In old
-style sinals/slots the signal would be instantiated on the fly (see the commented 
-out code to see how Summerfield originally did this). Within Form3, when the signal
-is emitted from ZeroSpinBox, it is connected to a custom slot (self.announce) that
-prints out how many times the spinbox has hit zero.
+Similar to previous, but now we subclass spinbox, creating a ZeroSpinBox class
+that tracks how often the spinbox has hit 0. Custom signal emission is actually
+simpler in old-style signals/slots than new style. This is because, unlike in 
+old-style signals and slots, this custom signal must be independently declared.
 
 Form 4 (input 4)
 Summerfield does not discuss this, but it is a simple example of connecting the
-output to QLineEdit to the terminal. It uses a built-in signal from QLineEdit (textChanged),
-and connects it to a custom slot (consoleEcho) that prints the contents of QLineEdit.
+text from QLineEdit to the terminal. 
 
 TaxRate (input 5)
-A pure console application (i.e., it has no GUI component). Acts like a more standard
-console application. Another example, like Form 3, of a custom signal (rateChangedSig) 
-being created and used by a custom slot (rateChangedSlot) that tells you if a new
+A pure console application (i.e., it has no GUI component). It tells you if a new
 rate is different from the old rate. The main point is that GUI classes are not the only
 that can emit: rather, any old QtCore.QObject can take advantage of these signal and slot
 mechanisms. In practice, this would be rather strange to do.
@@ -40,31 +32,20 @@ mechanisms. In practice, this would be rather strange to do.
 Usage:
 At command line, enter:
     python signalsPyside.py <input>
-Where <input> is a number between 1 and 5 specified above.
+Where <input> is a number between 1 and 5 corresponding to programs specified above.
 
+-------
 Note in this and all code involving Signals/Slots, I am violating the convention 
-(followed by Summerfield, and apparently many who code in Qt) of giving slots the 
-same name as their signal. I don't like this for a few reasons:
-1. Slots are often connected to multiple signals.
-2. Explicit is better than implicit.
-3. Code is read more often than written--readability counts.
+of giving slots the same name as their signal. I don't like this for a few reasons:
+1. Different names for different objects makes code more readable. 
+2. There are often many slots for a given signal (or many signals for a given slot).
+3. Explicit is better than implicit.
 
-Caveat:
-In some terminals (e.g., the one I run in Spyder), it seems output 
-sent to terminal is buffered until the application is closed. I haven't 
-figured out a way around this yet (sys.stdout.flush() does nothing).
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
 
-Note:
-Annotations include comments and links to relevant documentation. When possible,
-PySide documentation is linked, but sometimes we have to go with Qt, as PySide
-documentation is way behind.
-
-Most recent version can be pulled from GitHub:
-XXXXX
-Especially interested in improving Pythonicity of code.
-
-To do:
-1. Move repeated comments to readme
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
 '''
 
 from PySide import QtGui, QtCore
