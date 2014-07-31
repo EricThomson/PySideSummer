@@ -1,37 +1,37 @@
 #PySideSummer
-Learning to program in PySide. Heavily annotated PySide adaptation of code from   Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008).
+Heavily annotated PySide adaptation of code from   Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html.
 
-Book's web site: http://www.qtrac.eu/pyqtbook.html
-
-Programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It was built to run in Python 2.7.*.
-
-If the original name of Summerfield's script was _name.pyw_, the new name is _namePyside.py_.
+The goal is for the programs to run without mishap in your favorite Python environment, as long as you have PySide installed. It was built to run in Python 2.7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
+  
+The contents of this repository are under a GPL v3 license.
 
 
 ##Table of contents
-Chapter 4: 
-Chapter 5: Dialogs
+**Chapter 4**: Introduction to GUI Programming
 
-###Guidelines used to adapt the code
-1. Old to new-style signals and slots.
-2. Replaced 'super' with explicit name of class (this is personal taste: 'super' frightens me).
-3. Added sys.exit to lines where application was executed (app.exec_()).
-
-3. Heavy annotations include comments, but also links to relevant documentation. When possible, PySide documentation is linked, but sometimes we have to go with Qt, as PySide documentation is way behind. I also discuss when imports or syntax that Summerfield used has become obsolete or deprecated. If I am missing any such cases, I'd really like to know so we can keep this as modern as possible (ahem...within the confines of Python 2 instead of 3).
+**Chapter 5**: Dialogs
 
 
-4. I put the comment '#XXX' on lines where I wasn't sure of what Summerfield was up to, and need
-to go back and figure it out for an annotation.
+###Guidelines followed
+1. Change old-style to new-style signals and slots.
 
-###Where I need help
-Especially interested in improving Pythonicity of code, and making it modern. The book the code is based on is from 2008, and a lot has changed since then, a lot of which I am probably not aware.
+2. Replace 'super' with explicit name of class.
 
-###To Do:
+3. Wrap app.exec_() in sys.exit(). 
+
+4. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
+
+5. Heavy annotations include comments, but also links to relevant documentation. When possible, PySide documentation is linked, but sometimes we have to go with Qt, as PySide documentation is way behind. Also, comments mention when something that had become obsolete or deprecated has been changed. If this repo is missing any such cases, please help out and change it or let us know.
+
+6. I put the comment `#XXX` on lines where it isn't so clear what is happening, and we need to go back and figure it out.
+
+
+####To Do:
 1. Remove common notes from each program.
-2. Add table of contents to readme
-3. Add url for book to each program and README
-4. README.md for each chapter?
-5. Chapter 5
+2. Add full table of contents to readme.
+3. README.md for each chapter?
+4. Chapter 4 [first draft done: proofread]
+5. Chapter 5 
 6. Chapter 6
 7. Chapter 7
 8. Chapter 8
@@ -42,4 +42,5 @@ Especially interested in improving Pythonicity of code, and making it modern. Th
 13. Chapter 13
 14. Chapter 14
 15. Chapter 15
-16. Go through and clean up XXX's in code.
+16. Formally add GPLv3 license.
+17. Go through and clean up XXX's in code.
