@@ -10,21 +10,44 @@ The goal is for the programs to run without mishap in your favorite Python envir
 
 **Chapter 5**: Dialogs
 
+**Chapter 6**: Main Windows
+
+**Chapter 7**: Using Qt Designer
+
+**Chapter 8**: Data Handling and Custom File Formats
+
+**Chapter 9**: Layouts and Multiple Documents
+
+**Chapter 10**: Events, the Clipboard, and Drag and Drop
+
+**Chapter 11**: Custom Widgets
+
+**Chapter 12**: Item-Based Graphics
+
+**Chapter 13**: Rich Text and Printing
+
+**Chapter 14**: Model/View Programming
+
+**Chapter 15**: Databases
+
+**Chapter 16**: Advanced Model/View Programming
+
+**Chapter 17**: Online Help and Iternationalization
+
+**Chapter 18**: Networking
+
+**Chapter 19**: Multithreading
 
 ###Some of the guidelines followed
 1. Change old-style to new-style signals and slots.
 
 2. Replace 'super' with explicit name of class.
 
-3. Wrap app.exec_() in sys.exit(). 
+3. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
 
-4. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
+4. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something that had become obsolete or deprecated. If we are missing any such cases, please let us know.
 
-5. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something that had become obsolete or deprecated. If we are missing any such cases, please let us know.
-
-6. Do not follow the convention of giving signals the same names as their slots (see Chapter4/signalsPyside.py doc for explanation).
-
-7. Put the comment `#XXX` on lines where it isn't so clear what is happening, and need to go back and figure it out.
+5. Do not follow the convention of giving signals the same names as their slots (see Chapter4/signalsPyside.py doc for explanation).
 
 
 ###LICENSE
@@ -32,22 +55,19 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Remove common notes from each program.
-2. Add full table of contents to readme.
-3. README.md for each chapter?
-4. Chapter 4 __[first draft done: proofread]__
-5. Chapter 5 __[translations done, annotation in progress]__
-6. Chapter 6
-7. Chapter 7
-8. Chapter 8
-9. Chapter 9
-10. Chapter 10
-11. Chapter 11
-12. Chapter 12
-13. Chapter 13
-14. Chapter 14
-15. Chapter 15
-16. Formally add GPLv3 license.
-17. Go through and clean up XXX's in code.
-18. Figure out answer to question about @QtCore.Slot() decorator for slots.
-19. Follow PEP guidelines.
+1. Chapter 5  [translations done, annotation in progress]
+2. Chapter 6
+3. Chapter 7
+4. Chapter 8
+5. Chapter 9
+6. Chapter 10
+7. Chapter 11
+8. Chapter 12
+9. Chapter 13
+10. Chapter 14
+11. Chapter 15
+12. Chapter 16
+13. Chapter 17
+14. Chapter 18
+15. Chapter 19
+16. Figure out answer to question about @QtCore.Slot() decorator for slots.
