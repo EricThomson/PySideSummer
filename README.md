@@ -1,7 +1,7 @@
 #PySideSummer
 Heavily annotated PySide adaptation of code from   Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html. 
 
-The goal is for the programs to run without mishap in your favorite Python environment, as long as you have PySide installed. It was built to run in Python 2.7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
+The programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It has thus far been tested on Python 2.7 in Windows 7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
   
 
 
@@ -41,13 +41,12 @@ The goal is for the programs to run without mishap in your favorite Python envir
 ###Some of the guidelines followed
 1. Change old-style to new-style signals and slots.
 
-2. Replace 'super' with explicit name of class.
+2. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
 
-3. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
+3. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something has become obsolete or deprecated. If we are missing any such cases, please let us know.
 
-4. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something that had become obsolete or deprecated. If we are missing any such cases, please let us know.
+4. Replace 'super' with explicit name of parent class (this is largely a matter of taste).
 
-5. Do not follow the convention of giving signals the same names as their slots (see Chapter4/signalsPyside.py doc for explanation).
 
 
 ###LICENSE
