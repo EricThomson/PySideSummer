@@ -1,16 +1,19 @@
 # coding: utf-8
 '''
 penPyside.py
-Heavily annotated PySide adaptation of pen.pyw from Chapter 5
+Lightly annotated PySide adaptation of pen.pyw from Chapter 5
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 Book's web site: http://www.qtrac.eu/pyqtbook.html
 
-Main goal: 
+Shows use of a dumb widget both inline and as a separate class. See 
+penClassonlyPyside.py for the class version, with more annotations.
 
-Usage:
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
 
-Questions:
-What is 'inline' versus 'class'?
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
+
 '''
 from PySide import QtGui, QtCore
 import sys
@@ -67,7 +70,6 @@ class Form(QtGui.QDialog):
         self.style = "Solid"
 
         #Create widgets
-        #XXX Effective difference b/w following two buttons?
         penButtonInline = QtGui.QPushButton("Set Pen... (Dumb &inline)") 
         penButton = QtGui.QPushButton("Set Pen... (Dumb &class)") #XXX
         self.label = QtGui.QLabel("The Pen has not been set")
@@ -125,7 +127,8 @@ class Form(QtGui.QDialog):
         layout.addWidget(styleLabel, 1, 0)
         layout.addWidget(styleComboBox, 1, 1, 1, 2)
         layout.addLayout(buttonLayout, 2, 0, 1, 3)
-        form = QtGui.QDialog() #XXX Huh? Isn't form already part of self?
+        
+        form = QtGui.QDialog() 
         form.setLayout(layout)
         form.setWindowTitle("Pen Properties")
         
@@ -133,7 +136,7 @@ class Form(QtGui.QDialog):
         okButton.clicked.connect(form.accept) 
         cancelButton.clicked.connect(form.reject)     
 
-        if form.exec_():  #XXX weird....see above
+        if form.exec_(): 
             self.width = widthSpinBox.value()
             self.beveled = beveledCheckBox.isChecked()
             self.style = styleComboBox.currentText()
@@ -151,6 +154,7 @@ class Form(QtGui.QDialog):
             self.beveled = dialog.beveledCheckBox.isChecked()
             self.style = dialog.styleComboBox.currentText()
             self.updateData()
+
 
 
 qtApp = QtGui.QApplication(sys.argv)

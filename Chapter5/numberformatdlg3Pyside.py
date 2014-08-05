@@ -1,10 +1,32 @@
+# coding: utf-8
+
+'''
+numberformatdlg3Pyside.py
+Annotated PySide adaptation of numberformatdlg3.py from Chapter 5
+of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
+
+This is imported into numbersPyside.py
+
+If you followed numbers 1 and 2, this one should seem relatively 
+straightforward. The calling class (form) passes a callback function
+that allows for on-the-fly updating of the appearance of the table of numbers
+we have been working with.
+
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
+
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
+
+'''
+
 from PySide import QtGui, QtCore
 
 
 class NumberFormatDlg(QtGui.QDialog):
 
     def __init__(self, format, callback, parent=None):
-        QtGui.QDialog.__init__(self, parent) #XXX format, callback???
+        QtGui.QDialog.__init__(self, parent)
 
         punctuationRe = QtCore.QRegExp(r"[ ,;:.]")
         thousandsLabel = QtGui.QLabel("&Thousands separator")

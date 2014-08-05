@@ -1,15 +1,28 @@
 # -*- coding: utf-8 -*-
 '''
-Note in the interests of brevity, in these scripts I have stopped writing down
-the old-style way of doing things. People interested can look at the code on
-Summerfield's web site.
+numbersPyside.py
+Heavily annotated PySide adaptation of numbersPyside.pyw from Chapter 5
+of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 
+XXX More comments here
+
+Usage:
+XXX Blah blah
+
+Note: I have stopped writing down the old-style signals/slots 
+alongside the new-style. To see them in parallel, see adaptations of
+programs from Chapter 4.
+
+-------
+This script is part of the PySideSummer repository at GitHub:
+https://github.com/EricThomson/PySideSummer
+
+Code is under the GPL license: http://www.gnu.org/copyleft/gpl.html
 '''
-
 from PySide import QtGui, QtCore
 import math
 import random
-import string
+import string  #can we not use this?
 import sys
 import numberformatdlg1Pyside
 import numberformatdlg2Pyside
@@ -91,15 +104,17 @@ class Form(QtGui.QDialog):
 
 
     def setNumberFormat1(self):
+        #Instantiate modal dialog, when closed get return values
         dialog = numberformatdlg1Pyside.NumberFormatDlg(self.format, self)
         if dialog.exec_():
-            self.format = dialog.numberFormat()
+            self.format = dialog.numberFormat() 
             self.refreshTable()
 
 
     def setNumberFormat2(self):
         dialog = numberformatdlg2Pyside.NumberFormatDlg(self.format, self)
-        dialog.changed.connect(self.refreshTable)
+        #'changed' is a custom signal defined/emitted in numberformatdlg2Pyside 
+        dialog.changed.connect(self.refreshTable) 
         dialog.show()
 
 

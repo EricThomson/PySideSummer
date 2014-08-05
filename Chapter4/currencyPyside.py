@@ -9,6 +9,9 @@ A currency converter laid out using gridlayout, where exchange rates are pulled 
 Usage:
 Run the module, and then play around to find out how much you can sell your money for
 (e.g., in Croatia).
+-------
+Useful references:
+http://www.blog.pythonlibrary.org/2013/04/09/pyside-creating-a-currency-converter/
 
 -------
 This script is part of the PySideSummer repository at GitHub:
