@@ -54,7 +54,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 5  [translations done, annotation in progress]
+1. Add README to each chapter folder.
 2. Chapter 6
 3. Chapter 7
 4. Chapter 8
@@ -70,3 +70,4 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 14. Chapter 18
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
+

@@ -4,14 +4,14 @@ numbersPyside.py
 Heavily annotated PySide adaptation of numbersPyside.pyw from Chapter 5
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 
-XXX More comments here
+Contains three different ways to change the appearance of numbers in a table:
+1. Dumb modal widget that uses post-mortem validation of entries.
+2. Smarter modeless dialog with an apply button. Uses some preventative validation.
+3. Really smart live dialog that changes the table instantly, all preventative validation.
 
 Usage:
-XXX Blah blah
+Run it, and click on the pushbuttons to use the three different editing styles.
 
-Note: I have stopped writing down the old-style signals/slots 
-alongside the new-style. To see them in parallel, see adaptations of
-programs from Chapter 4.
 
 -------
 This script is part of the PySideSummer repository at GitHub:

@@ -8,9 +8,10 @@ of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 This is imported into numbersPyside.py
 
 If you followed numbers 1 and 2, this one should seem relatively 
-straightforward. The calling class (form) passes a callback function
+straightforward. The calling class (Form) passes a callback function
 that allows for on-the-fly updating of the appearance of the table of numbers
-we have been working with.
+we have been working with. We pay for this power with some loss
+of modularity.
 
 -------
 This script is part of the PySideSummer repository at GitHub:
