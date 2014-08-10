@@ -44,7 +44,7 @@ The programs should run without mishap in your favorite Python environment, as l
 
 3. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
 
-4. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something has become obsolete or deprecated. If we are missing any such cases, please let us know. In annotating, I followed the rule that if something wasn't obvious, and wasn't explained very deeply in Summerfield's book, then provide enough context and explanation to help the novice get on their feet.
+4. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something has become obsolete or deprecated. If we are missing any such cases, please let us know. In annotating, I followed the rule that if something wasn't obvious, and wasn't explained in depth in Summerfield's book, then provide enough context and explanation to help future me up to speed.
 
 5. Replace 'super' with explicit base class (this is largely a matter of taste). 
 
@@ -54,8 +54,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 6 [translating underway]
-3. Chapter 7
+1. Chapter 7 [translation underway]
 4. Chapter 8
 5. Chapter 9
 6. Chapter 10
@@ -71,7 +70,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
 
 ####Interesting links
-Interesting to developers anyway :)
+Interesting to me, anyway.
 
 http://comments.gmane.org/gmane.comp.lib.qt.pyside/2038
 
