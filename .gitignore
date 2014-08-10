@@ -2,3 +2,5 @@
 ~*.*
 working/
 *.pyc
+resource_rc.py*
+ui_*.py*

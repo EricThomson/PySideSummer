@@ -1,4 +1,4 @@
-# coding: utf-8
+﻿# coding: utf-8
 '''
 penClassonlyPyside.py
 Heavily annotated PySide adaptation of pen.pyw from Chapter 5
@@ -78,7 +78,7 @@ class Form(QtGui.QDialog):
             self.updateData() #show new values in label below button
 
 '''
-Create new PenPropertiesDlg class instance is invoked by Form, as a child of From.
+Create new PenPropertiesDlg class instance, as a child of From.
 QDialog is unique in that when it is instantiated as a child, it is immediately painted
 on top of its parent. When its 'accept' or 'reject' slot is invoked, it closes and 
 returns 1 or 0 to the parent, respectively. When accepted its exec_ method is invoked,
@@ -144,9 +144,9 @@ class PenPropertiesDlg(QtGui.QDialog):
 
         #Connect buttons to slots
         #Note that accept() and reject() are built-in methods of the dialog
-        #that give control back to the caller
-        okButton.clicked.connect(self.accept) 
-        cancelButton.clicked.connect(self.reject)
+        #that give control back to the caller 
+        okButton.clicked.connect(self.accept)  #exec_ returns 1 to caller
+        cancelButton.clicked.connect(self.reject)  #exec_ returns 0 to caller
         
         
 if __name__=="__main__":

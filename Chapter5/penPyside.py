@@ -32,7 +32,7 @@ class PenPropertiesDlg(QtGui.QDialog):
         self.beveledCheckBox = QtGui.QCheckBox("&Beveled edges")
         styleLabel = QtGui.QLabel("&Style:")
         self.styleComboBox = QtGui.QComboBox()
-        styleLabel.setBuddy(self.styleComboBox) #XXX
+        styleLabel.setBuddy(self.styleComboBox) 
         self.styleComboBox.addItems(["Solid", "Dashed", "Dotted",
                                      "DashDotted", "DashDotDotted"])
         okButton = QtGui.QPushButton("&OK")
@@ -41,7 +41,7 @@ class PenPropertiesDlg(QtGui.QDialog):
         #Set layout
         #Buttons
         buttonLayout = QtGui.QHBoxLayout()
-        buttonLayout.addStretch() #XXX
+        buttonLayout.addStretch() 
         buttonLayout.addWidget(okButton)
         buttonLayout.addWidget(cancelButton)
         #Widgets (including buttons) lay out in grid
