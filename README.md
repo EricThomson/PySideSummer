@@ -54,8 +54,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 7 [translation underway]
-4. Chapter 8
+1. Chapter 8 [translation underway]
 5. Chapter 9
 6. Chapter 10
 7. Chapter 11
