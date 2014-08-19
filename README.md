@@ -48,13 +48,15 @@ The programs should run without mishap in your favorite Python environment, as l
 
 5. Replace 'super' with explicit base class (this is largely a matter of taste). 
 
+6. Replace `Qt.escape()`, which is deprecated, with `xml.sax.saxutils.escape()`.
+
 
 ###LICENSE
 PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 8 [translation underway]
+1. Chapter 8 [translation complete; finishing exercise]
 5. Chapter 9
 6. Chapter 10
 7. Chapter 11
@@ -67,6 +69,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 14. Chapter 18
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
+17. In addition to _README.md_, Add _usefulStuff.md_ to each chapter (change from 'usefulDocumentation', as the latter suggests just documentation, but it has lots of useful stuff, not just links to PySide Documentation).
 
 ####Interesting links
 Interesting to me, anyway.
