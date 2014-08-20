@@ -44,20 +44,18 @@ The programs should run without mishap in your favorite Python environment, as l
 
 3. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
 
-4. Heavy annotations include comments, but also links to relevant documentation. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation is way behind. Also, comments mention when something has become obsolete or deprecated. If we are missing any such cases, please let us know. In annotating, I followed the rule that if something wasn't obvious, and wasn't explained in depth in Summerfield's book, then provide enough context and explanation to help future me up to speed.
+4. Replace 'super' with explicit base class (this is largely a matter of taste). 
 
-5. Replace 'super' with explicit base class (this is largely a matter of taste). 
+5. Replace `Qt.escape()`, which is deprecated, with `xml.sax.saxutils.escape()`.
 
-6. Replace `Qt.escape()`, which is deprecated, with `xml.sax.saxutils.escape()`.
-
+6. Heavy annotations include comments in code, but also each chapter contains a _README_ file, and most chapters contain a _usefulStuff_ file with curated exerpts from PySide documentation and other relevant recources. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation lags Qt so much.
 
 ###LICENSE
 PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 8 [translation complete; finishing exercise]
-5. Chapter 9
+1. Chapter 9 [translation underway]
 6. Chapter 10
 7. Chapter 11
 8. Chapter 12
@@ -69,7 +67,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 14. Chapter 18
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
-17. In addition to _README.md_, Add _usefulStuff.md_ to each chapter (change from 'usefulDocumentation', as the latter suggests just documentation, but it has lots of useful stuff, not just links to PySide Documentation).
+17. Add _usefulStuff.md_ to earlier chapters.
 
 ####Interesting links
 Interesting to me, anyway.

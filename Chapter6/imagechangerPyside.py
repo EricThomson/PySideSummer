@@ -233,6 +233,7 @@ class MainWindow(QtGui.QMainWindow):
         #check for dirty workspace, give option to save
         if not self.okToContinue():
             return
+        #print dir(newimagedlgPyside)
         #Dialog for making new simple image
         dialog = newimagedlgPyside.NewImageDlg(self)  #uses the gui-generated dialog
         if dialog.exec_():

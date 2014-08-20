@@ -1,7 +1,7 @@
 ﻿#PySide Summer Chapter 6: Main Windows
 A PySide port of the code from Chapter 6 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The central module is _imagechanger.py_. It lets you load an image and edit it various ways. The port also includes an answer to the exercise (_imagechanger_ansPyside.py_ and its associated dialog builder _resizedlgPyside.py_).
 
-Also, see usefulDocumentation.txt for helpful exerpts from the PySide documentation for relevant classes used in the files.
+Also, see usefulDocumentation.txt for helpful excerpts from the PySide documentation for relevant classes used in the files.
 
 ##Structure of Package
 The main module is _imagechangerPyside.py_. It uses the following: 
@@ -9,6 +9,7 @@ The main module is _imagechangerPyside.py_. It uses the following:
 *  helpformPyside.py
 *  resources.qrc
 *  newimagedlg.ui
+*  images/  (contains icons for the menus/toolbars)
 
 This directory also includes a sample image, _buttfumble.png_, a picture from the most wonderful play of football in all time. Google it.
 

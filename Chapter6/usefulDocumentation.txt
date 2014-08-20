@@ -1,5 +1,5 @@
 Useful documentation for imagechangerPyside.py
-Part of PySideSummer repository: https://github.com/EricThomson/PySideSummer
+From Chapter 6 of PySideSummer repository: https://github.com/EricThomson/PySideSummer
 
 
 **QtGui.QMainWindow*
