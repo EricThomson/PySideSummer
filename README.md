@@ -1,19 +1,19 @@
-#PySideSummer
-Heavily annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html. 
+﻿#PySideSummer
+Highly documented PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html. 
 
 The programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It has thus far been tested on Python 2.7 in Windows 7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
   
 
 ##Table of contents
-**Chapter 4**: Introduction to GUI Programming
+**Chapter 4**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter4">Introduction to GUI Programming</a>
 
-**Chapter 5**: Dialogs
+**Chapter 5**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter5">Dialogs</a>
 
-**Chapter 6**: Main Windows
+**Chapter 6**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter6">Main Windows</a>
 
-**Chapter 7**: Using Qt Designer
+**Chapter 7**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter7">Using Qt Designer</a>
 
-**Chapter 8**: Data Handling and Custom File Formats
+**Chapter 8**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter9">Data Handling and Custom File Formats</a>
 
 **Chapter 9**: Layouts and Multiple Documents
 
