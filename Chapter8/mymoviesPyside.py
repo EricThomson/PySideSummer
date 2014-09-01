@@ -5,13 +5,6 @@ Annotated PySide adaptation of mymovies.pyw from Chapter 8
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 Book's web site: http://www.qtrac.eu/pyqtbook.html
 
-To do:
-1. Try to break it at every stage. Play around with program to see what's up 
-with the world. Make your own list from scratch, save, load, edit, etc. 
-2. Read through chapter.
-3. Clear up tests in moviedata. Add unit test? Or keep like this?
-
-
 ------            
 This script is part of the PySideSummer repository at GitHub:
 https://github.com/EricThomson/PySideSummer
@@ -308,7 +301,7 @@ class MainWindow(QtGui.QMainWindow):
                 <p>This application can be used to view some basic
                 information about movies and to load and save the 
                 movie data in a variety of custom file formats.
-                <p>Python {1} - Qt {2} - PyQt {3} on {4}""".\
+                <p>Python {1} - Qt {2} - PySide {3} on {4}""".\
                 format(__version__, platform.python_version(),
                 QtCore.qVersion(), PySide.__version__,
                 platform.system()))
