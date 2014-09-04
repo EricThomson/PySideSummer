@@ -17,7 +17,7 @@ The programs should run without mishap in your favorite Python environment, as l
 
 **Chapter 9**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter9">Layouts and Multiple Documents</a>
 
-**Chapter 10**: Events, the Clipboard, and Drag and Drop
+**Chapter 10**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter10">Events, the Clipboard, and Drag and Drop</a>
 
 **Chapter 11**: Custom Widgets
 
@@ -50,7 +50,7 @@ The programs should run without mishap in your favorite Python environment, as l
 
 6. When opening files with `codecs` module, change the mode from "wt" to "w". 
 
-7. Replace `QtGui.QWorkspace` (deprecated) with `QtGui.QMdiArea.` This entails a great deal of other relatively minor changes (Chapter 9 mdi text editor code).
+7. Replace `QtGui.QWorkspace` (deprecated) with `QtGui.QMdiArea.` This entails a great deal of other relatively minor changes (see Chapter 9 texteditor code).
 
 8. Heavy annotations include comments in code, but also each chapter contains a _README_ file, and most chapters contain a _usefulStuff_ file with curated exerpts from PySide documentation and other relevant resources. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation lags Qt so much.
 
@@ -59,8 +59,7 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 10 [translation underway]
-7. Chapter 11
+1. Chapter 11 [translation underway]
 8. Chapter 12
 9. Chapter 13
 10. Chapter 14
@@ -71,10 +70,3 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
 17. Add _usefulStuff.md_ to earlier chapters, and make sure formatting is consistent in all chapters.
-
-####Interesting links
-Interesting to me, anyway.
-
-http://comments.gmane.org/gmane.comp.lib.qt.pyside/2038
-
-http://www.qtrac.eu/pyqtbook.html#pyside

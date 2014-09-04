@@ -64,10 +64,10 @@ label.setStyleSheet("QLabel { color: rgb(255, 0, 0); font-weight: bold; font-siz
 #Splashscreen documentation: http://srinikom.github.io/pyside-docs/PySide/QtGui/QSplashScreen.html
 #Lots of potential flags to explore: srinikom.github.io/pyside-docs/PySide/QtCore/Qt.html
 label.setWindowFlags(QtCore.Qt.SplashScreen | QtCore.Qt.WindowStaysOnTopHint)
+
+#show the label, wait, then quit the application (close the windows)
 label.show()
 waitTime=3000  #in milliseconds
-
-#show the label, wait 3000 ms, then quit the application (close the windows)
 QtCore.QTimer.singleShot(waitTime, qtApp.quit) #http://srinikom.github.io/pyside-docs/PySide/QtCore/QTimer.html
 
 #Start the event loop with .exec_(), sys.exit makes clean exit more likely

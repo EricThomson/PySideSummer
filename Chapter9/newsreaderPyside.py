@@ -10,8 +10,7 @@ Note also this has a cool way of setting up the toolbars/menus, different from t
 in Chapters 6 and 8.
 
 Note: see splitterPlay.py
-in the working folder (not on GitHub) for basics of stretch factor: 
-in this example it is not clear what messageSplitter stretch factors are doing.
+in the working folder (not on GitHub) for basics of stretch factor.
 ------            
 This script is part of the PySideSummer repository at GitHub:
 https://github.com/EricThomson/PySideSummer
