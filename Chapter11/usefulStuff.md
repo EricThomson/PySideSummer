@@ -1,8 +1,6 @@
 ﻿Things that might be useful when working through Chapter 11 of PySideSummer repository (https://github.com/EricThomson/PySideSummer)
 
 #Useful links
-
-#Useful Documentation
 Great stuff on painting, from Qt:
 http://qt-project.org/doc/qt-4.8/paintsystem.html
 
@@ -15,6 +13,7 @@ http://qt-project.org/doc/qt-5/qsizepolicy.html#Policy-enum
 Color roles:
 http://pyside.github.io/docs/pyside/PySide/QtGui/QPalette.html#PySide.QtGui.PySide.QtGui.QPalette.ColorRole
 
+#Useful documentation
 ##QtGui.QWidget
 http://github.io/docs/pyside/PySide/QtGui/QWidget.html
 
