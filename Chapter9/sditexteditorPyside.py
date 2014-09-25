@@ -8,8 +8,8 @@ Book's web site: http://www.qtrac.eu/pyqtbook.html
 Note I removed all use of 'isAlive' and related methods, as they use 'sip' which
 is a PyQt package, and I couldn't get shiboken (which is used to bind PySide to Qt)
 to work properly. Instead, to update the Instances variable, I just removed
-the present instance in the reimplementation of closeEvent 
-(MainWindow.Instances.remove(self) updates the list).
+the present instance in the reimplementation of closeEvent (MainWindow.Instances.remove(self))
+updates the list.
 
 """
 #from __future__ import unicode_literals
@@ -25,14 +25,14 @@ class MainWindow(QtGui.QMainWindow):
 
     
     NextId = 1  #each time a new window is opened, so it can display (untilted-2, -3, -4, etc). sdi.py uses sequenceNumber
-    Instances = set()
+    Instances = [] #list of active window instances (sdi.py uses windowList)
 
     #create instance 
     def __init__(self, filename="", parent=None):
         QtGui.QMainWindow.__init__(self, parent) 
         
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)  #destroys when user closes
-        MainWindow.Instances.add(self)
+        MainWindow.Instances.append(self)  
 
         self.editor = QtGui.QTextEdit()
         self.setCentralWidget(self.editor)
@@ -108,6 +108,16 @@ class MainWindow(QtGui.QMainWindow):
         else:
             self.loadFile()
 
+        #on destroyed: http://srinikom.github.io/pyside-docs/PySide/QtCore/QObject.html
+        #self.destroyed.connect(MainWindow.updateInstances)  #instead of repopulating, just remove
+        
+        
+#    @staticmethod
+#    def updateInstances():
+#        print "Updating instances"
+#        #MainWindow.Instances.remove = (set([window for window
+#        #        in MainWindow.Instances if isAlive(window)]))  
+#         
                 
     def createAction(self, text, slot=None, shortcut=None, icon=None,
                      tip=None, checkable=False):
@@ -141,7 +151,7 @@ class MainWindow(QtGui.QMainWindow):
                 QtGui.QMessageBox.Yes|QtGui.QMessageBox.No) ==
                 QtGui.QMessageBox.Yes):
             self.fileSave()
-            MainWindow.Instances.discard(self)
+        MainWindow.Instances.remove(self)
 
     def fileQuit(self):
         QtGui.QApplication.closeAllWindows() #built-in of qapplication
@@ -236,5 +246,5 @@ if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     app.setWindowIcon(QtGui.QIcon(":/icon.png"))
     MainWindow().show()  #this seems to be sufficient to open a window
-    #MainWindow().show()  #just for fun I tried this.
+    MainWindow().show()  #yep, another window opens
     sys.exit(app.exec_())
