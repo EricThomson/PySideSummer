@@ -5,6 +5,10 @@ On setvisible versus show:
 
 http://stackoverflow.com/questions/12177801/whats-the-difference-in-qt-between-setvisible-setshown-and-show-hide
 
+Great discussion of MDI versus SDI versus TDI:
+http://stackoverflow.com/questions/486020/is-there-still-a-place-for-mdi
+
+
 #Useful Documentation
 
 ##QTabWidget
