@@ -23,9 +23,9 @@ The programs should run without mishap in your favorite Python environment, as l
 
 **Chapter 12**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter12">Item-Based Graphics</a>
 
-**Chapter 13**: Rich Text and Printing
+**Chapter 13**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter13">Rich Text and Printing</a>
 
-**Chapter 14**: Model/View Programming
+**Chapter 14**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter14">Model/View Programming</a>
 
 **Chapter 15**: Databases
 
@@ -67,12 +67,11 @@ PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 13 [translation underway]
-10. Chapter 14
-11. Chapter 15
+1. Chapter 15 [translation underway]
 12. Chapter 16
 13. Chapter 17
 14. Chapter 18
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
 17. Add _usefulStuff.md_ to earlier chapters, and make sure formatting is decent, and consistent in all chapters, and remove extensive comments from the code itself.
+18. Make sure you are consistent in removal of 'super'...

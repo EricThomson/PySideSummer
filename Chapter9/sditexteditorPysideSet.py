@@ -11,6 +11,22 @@ to work properly. Instead, to update the Instances variable, I just removed
 the present instance in the reimplementation of closeEvent 
 (MainWindow.Instances.remove(self) updates the list).
 
+From Summerfield:
+    Yes, this is almost the same as the approach I take myself nowadays.
+    The only difference is that I use a set() not a list:
+    
+    #before __init__
+    Instances=set()
+    
+    #within __init__
+    MainWindow.Instances.add(self)
+    
+    #Add the following to reimplementation of closeEvent
+    MainWindow.Instances.discard(self)
+    
+    I'm not saying using a list is wrong, but I feel that a set is more
+    expressive of the intention. Still, it is your port, so up to you:-)
+
 """
 #from __future__ import unicode_literals
 import codecs
