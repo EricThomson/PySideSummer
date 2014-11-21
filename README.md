@@ -61,21 +61,21 @@ to:
     drawPolygon(QtGui.QPolygon([QtCore.QPoint(x1, y1), QtCore.QPoint(x2,y2)]))
 	
 9. Replace deprecated `QMatrix` and `.matrix()` with 'QTransform' and '.transform()` (Chapter 12).
-
 10. Replace the single line:
 
         self.assetView.selectionModel().currentRowChanged.connect(self.assetChanged)
         
-With the two lines:
+ With the two lines:
 
         selectionModel = self.assetView.selectionModel()
         selectionModel.currentRowChanged.connect(self.assetChanged)
         
-This seems to be due to a bug in PySide (Chapter 15).
+ This seems to be due to a bug in PySide (Chapter 15).
 
-11. I could only find sqlite by adding the following before the line `QtSql.QSqlDatabase.addDatabase("QSQLITE")`:
+11. I could only find sqlite by adding the following before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`:
 
-    site_pack_path = site.getsitepackages()[1] 
+
+	site_pack_path = site.getsitepackages()[1] 
     QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
     
 This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
