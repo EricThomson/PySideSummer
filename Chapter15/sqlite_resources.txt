@@ -1,0 +1,33 @@
+Very simple, clear instructions for installing sqlite3 and creating your first database at the command line:
+<a href="https://www.youtube.com/watch?v=VZ20Lh4zbRo">Getting started with sqlite on windows</a>
+
+After installing, add the folder containing <i>sqlite3.exe</i> to your system path (<a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/">how to edit your system path</a>).
+
+SQL
+Following actually describes create command
+http://www.sqlcourse.com/
+
+Looks ok
+http://www.w3schools.com/sql/default.asp
+
+
+
+
+Getting started (from nice little tutorial at <a href="http://www.sqlite.org/cli.html">sqlite.org</a>). 
+Note:
+Be sure to enter a semicolon at the end of each command. For Python users, this is not reflexive.
+Comments are indicated with two dashes.
+
+c:\sqlite> sqlite3 example1.db
+create table firstTable (
+
+
+
+http://zetcode.com/db/sqlite/ (not read)
+
+
+
+Python sqlite:
+Zetcode tutorial: http://zetcode.com/db/sqlitepythontutorial/
+24 hour python book (2 chapters):  (not read)
+Python 101 book (1 chapter):  (not read)

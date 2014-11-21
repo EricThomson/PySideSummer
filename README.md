@@ -2,6 +2,8 @@
 Annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html. 
 
 The programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It has thus far been tested on Python 2.7 in Windows 7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
+
+Annotations include comments in code, but each chapter also contains a _README_ file and a _usefulStuff_ file with curated excerpts from PySide documentation and other relevant resources. When possible, we link to PySide documentation, but sometimes we have to go with Qt or PyQt when it is better.
   
 
 ##Table of contents
@@ -27,7 +29,7 @@ The programs should run without mishap in your favorite Python environment, as l
 
 **Chapter 14**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter14">Model/View Programming</a>
 
-**Chapter 15**: Databases
+**Chapter 15**:  <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter15">Databases</a>
 
 **Chapter 16**: Advanced Model/View Programming
 
@@ -60,15 +62,25 @@ to:
 	
 9. Replace deprecated `QMatrix` and `.matrix()` with 'QTransform' and '.transform()` (Chapter 12).
 
-9. Annotations include comments in code, but also each chapter contains a _README_ file, and most chapters contain a _usefulStuff_ file with curated exerpts from PySide documentation and other relevant resources. When possible, we link to PySide documentation, but sometimes we have to go with Qt because PySide documentation lags Qt so much.
+10. Replace the single line:
+        self.assetView.selectionModel().currentRowChanged.connect(self.assetChanged)
+With the two lines:
+        selectionModel = self.assetView.selectionModel()
+        selectionModel.currentRowChanged.connect(self.assetChanged)
+This seems to be due to a bug in PySide (Chapter 15).
+
+11. I could only find sqlite by adding the following before the line `QtSql.QSqlDatabase.addDatabase("QSQLITE")`:
+    site_pack_path = site.getsitepackages()[1] 
+    QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
+This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
+is. (Chapter 15)
 
 ###LICENSE
 PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 15 [translation underway]
-12. Chapter 16
+1. Chapter 16 [translation underway]
 13. Chapter 17
 14. Chapter 18
 15. Chapter 19

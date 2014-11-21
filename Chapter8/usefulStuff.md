@@ -1,11 +1,23 @@
 ﻿Things that might be useful when working through Chapter 8 of PySideSummer repository (https://github.com/EricThomson/PySideSummer)
 
 #Useful links
-  id() :  https://docs.python.org/2/library/functions.html#id
+id()
+https://docs.python.org/2/library/functions.html#id
 
+
+    
+    
 #Useful Documentation
-  **QtGui.QTableWidget**
-  http://srinikom.github.io/pyside-docs/PySide/QtGui/QTableWidget.html
+##pickle
+https://docs.python.org/2.7/library/pickle.html
+
+    The pickle module implements a fundamental, but powerful algorithm for serializing and de-serializing a Python object structure. “Pickling” is the process whereby a Python object hierarchy is converted into a byte stream, and “unpickling” is the inverse operation, whereby a byte stream is converted back into an object hierarchy. Pickling (and unpickling) is alternatively known as “serialization”, “marshalling,” [1] or “flattening”, however, to avoid confusion, the terms used here are “pickling” and “unpickling”.
+
+    To serialize an object hierarchy, you first create a pickler, then you call the pickler’s dump() method.  To de-serialize a data stream, you first create an unpickler, then you call the unpickler’s load() method.
+
+    
+##QtGui.QTableWidget
+http://srinikom.github.io/pyside-docs/PySide/QtGui/QTableWidget.html
     
     The PySide.QtGui.QTableWidget class provides an item-based table view with a default model (model/view framework will be covered in a subsequent chapter of Summerfield's book).Table widgets provide standard table display facilities for applications. The items in a PySide.QtGui.QTableWidget are provided by PySide.QtGui.QTableWidgetItem .
 
@@ -29,8 +41,8 @@
 
     The number of rows in the table can be found with PySide.QtGui.QTableWidget.rowCount() , and the number of columns with PySide.QtGui.QTableWidget.columnCount() . The table can be cleared with the PySide.QtGui.QTableWidget.clear() function. 
     
-  **QtGui.QTableWidgetItem**
-  http://srinikom.github.io/pyside-docs/PySide/QtGui/QTableWidgetItem.html
+##QtGui.QTableWidgetItem
+http://srinikom.github.io/pyside-docs/PySide/QtGui/QTableWidgetItem.html
     
     The PySide.QtGui.QTableWidgetItem class provides an item for use with the PySide.QtGui.QTableWidget class. Table items are used to hold pieces of information for table widgets. Items usually contain text, icons, or checkboxes
 
@@ -40,8 +52,8 @@
     http://srinikom.github.io/pyside-docs/PySide/QtCore/Qt.html#PySide.QtCore.PySide.QtCore.Qt.ItemFlag
     
     
-  **QtCore.QDataStream**
-  http://srinikom.github.io/pyside-docs/PySide/QtCore/QDataStream.html
+##QtCore.QDataStream
+http://srinikom.github.io/pyside-docs/PySide/QtCore/QDataStream.html
     The PySide.QtCore.QDataStream class provides serialization of binary data to a PySide.QtCore.QIODevice .
 
     A data stream is a binary stream of encoded information which is 100% independent of the host computer’s operating system, CPU or byte order. For example, a data stream that is written by a PC under Windows can be read by a Sun SPARC running Solaris.You can also use a data stream to read/write raw unencoded binary data . If you want a “parsing” input stream, see PySide.QtCore.QTextStream .
@@ -61,8 +73,8 @@
     If you are producing a new binary data format, such as a file format for documents created by your application, you could use a PySide.QtCore.QDataStream to write the data in a portable format. Typically, you would write a brief header containing a magic string and a version number to give yourself room for future expansion. 
       
   
-  **QtCore.QTextStream**
-  http://srinikom.github.io/pyside-docs/PySide/QtCore/QTextStream.html
+##QtCore.QTextStream
+http://srinikom.github.io/pyside-docs/PySide/QtCore/QTextStream.html
     The PySide.QtCore.QTextStream class provides a convenient interface for reading and writing text.
 
     PySide.QtCore.QTextStream can operate on a PySide.QtCore.QIODevice , a PySide.QtCore.QByteArray or a PySide.QtCore.QString . Using PySide.QtCore.QTextStream‘s streaming operators, you can conveniently read and write words, lines and numbers. For generating text, PySide.QtCore.QTextStream supports formatting options for field padding and alignment, and formatting of numbers.
@@ -85,16 +97,10 @@
     For real numbers, call PySide.QtCore.QTextStream.setRealNumberNotation() and PySide.QtCore.QTextStream.setRealNumberPrecision() to set the notation (SmartNotation , ScientificNotation , FixedNotation ) and precision in digits of the generated number. Some extra number formatting options are also available through PySide.QtCore.QTextStream.setNumberFlags() (http://qt-project.org/doc/qt-4.8/qtextstream.html#NumberFlag-enum).
   
   
-  **pickle**
-  https://docs.python.org/2.7/library/pickle.html
-
-    The pickle module implements a fundamental, but powerful algorithm for serializing and de-serializing a Python object structure. “Pickling” is the process whereby a Python object hierarchy is converted into a byte stream, and “unpickling” is the inverse operation, whereby a byte stream is converted back into an object hierarchy. Pickling (and unpickling) is alternatively known as “serialization”, “marshalling,” [1] or “flattening”, however, to avoid confusion, the terms used here are “pickling” and “unpickling”.
-
-    To serialize an object hierarchy, you first create a pickler, then you call the pickler’s dump() method.  To de-serialize a data stream, you first create an unpickler, then you call the unpickler’s load() method.
 
   
-  **QDomDocument**
-  https://deptinfo-ensip.univ-poitiers.fr/ENS/pyside-docs/PySide/QtXml/QDomDocument.html
+##QDomDocument
+https://deptinfo-ensip.univ-poitiers.fr/ENS/pyside-docs/PySide/QtXml/QDomDocument.html
 
     The PySide.QtXml.QDomDocument class represents an XML document. It represents the entire XML document. Conceptually, it is the root of the document tree, and provides the primary access to the document’s data.
 
@@ -115,8 +121,8 @@
     For further information about the Document Object Model see the Document Object Model (DOM) Level 1 and Level 2 Core Specifications (http://www.w3.org/DOM/DOMTR)
     
 
-  **QDomNode**
-  http://pyside.github.io/docs/pyside/PySide/QtXml/QDomNode.html#
+##QtXml.QDomNode
+http://pyside.github.io/docs/pyside/PySide/QtXml/QDomNode.html#
     The PySide.QtXml.QDomNode class is the base class for all the nodes in a DOM tree. Many functions in the DOM return a PySide.QtXml.QDomNode. You can find out the type of a node using PySide.QtXml.QDomNode.isAttr() , PySide.QtXml.QDomNode.isDocument() , PySide.QtXml.QDomNode.isDocumentType() , PySide.QtXml.QDomNode.isElement() , PySide.QtXml.QDomNode.isEntityReference() , PySide.QtXml.QDomNode.isText() , 
 
     A PySide.QtXml.QDomNode can be converted into one of its subclasses using PySide.QtXml.QDomNode.toAttr() , PySide.QtXml.QDomNode.toDocument() , PySide.QtXml.QDomNode.toDocumentType() , PySide.QtXml.QDomNode.toElement(), PySide.QtXml.QDomNode.toText() , PySide.QtXml.QDomNode.toEntity() , PySide.QtXml.QDomNode.toNotation(). You can convert a node to a null node with PySide.QtXml.QDomNode.clear() .
@@ -152,8 +158,8 @@
 
  
   
-  **QXmlSimpleReader**
-  http://srinikom.github.io/pyside-docs/PySide/QtXml/QXmlSimpleReader.html
+##QtXml.QXmlSimpleReader
+http://srinikom.github.io/pyside-docs/PySide/QtXml/QXmlSimpleReader.html
 
     The PySide.QtXml.QXmlSimpleReader class provides an implementation of a simple XML parser. This XML reader is suitable for a wide range of applications. It is able to parse well-formed XML and can report the namespaces of elements to a content handler.
 
