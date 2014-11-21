@@ -76,6 +76,7 @@ to:
 
 
 	site_pack_path = site.getsitepackages()[1] 
+    
     QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
     
 This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
