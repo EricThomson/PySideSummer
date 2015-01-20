@@ -31,9 +31,11 @@ DATEFORMAT = "ddd MMM d, yyyy"
 #Replace paragraphs (two newlines replaced by NEWPARA, then \n by NEWLINE
 #On replace: http://www.tutorialspoint.com/python/string_replace.htm
 def encodedNewlines(text):
+    """convert \n\n to NEWPARA, and \n to NEWLINE"""
     return text.replace("\n\n", NEWPARA).replace("\n", NEWLINE)
 
 def decodedNewlines(text):  
+    """convert NEWPARA to \n\n, and NEWLINE to \n"""
     return text.replace(NEWPARA, "\n\n").replace(NEWLINE, "\n")  
     
     
@@ -739,9 +741,9 @@ class SaxMovieHandler(QtXml.QXmlDefaultHandler):
         
 #Testing different components of the program
 if __name__=="__main__":
-    testEncodeDecode=0
+    testEncodeDecode=1
     testMovieClass=0
-    testContainer=1
+    testContainer=0
     
     if testEncodeDecode:
         print "*" * 40
@@ -753,7 +755,8 @@ if __name__=="__main__":
         newTextDecoded = decodedNewlines(newTextEncoded)
       
         print "Input:\n", newText
-        print "\nOutput after encoding and decoding:\n", newTextDecoded
+        #print "\nType and output after encoding:\n", type(newTextEncoded), "\n", newTextEncoded
+        print "\nType and output after decoding:\n", type(newTextDecoded), "\n", newTextDecoded
         print "*" * 40
         
     if testMovieClass:

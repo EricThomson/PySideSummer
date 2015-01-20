@@ -5,9 +5,7 @@ Annotated PySide port of ships-delegate.pyw from Chapter 14
 of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 Book's web site: http://www.qtrac.eu/pyqtbook.html
 
-To do: 
-This is not formatting properly. His 2.7 does, but this is modified from his Python 3, 
-so need to figure out what's going on.
+Note only description column has proper html formatting.
 
 ------            
 This script is part of the PySideSummer repository at GitHub:
@@ -27,6 +25,19 @@ try:
 except ImportError:
     MAC = False
 
+def displayFlags(flagDict, flags = None):
+    if not flags:
+        return None
+    else:
+        flagDescriptions = []
+        recastFlags = int(flags)  #all flags, cast to integer
+        #print "Number of elements in dict: ", len(flagDict)
+        for flagInd in range(len(flagDict)):
+            flagVal = flagDict.keys()[flagInd]
+            if recastFlags & flagVal:
+                flagDescriptions.append(flagDict.values()[flagInd])
+        return flagDescriptions
+        
 
 class MainForm(QtGui.QDialog):
 

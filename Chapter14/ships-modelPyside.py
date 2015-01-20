@@ -9,7 +9,7 @@ called by ships-modelPyside.py
 
 Different degrees of customizability, with concomitant responsibilities:
 
-General subclassing:
+Subclassing of QAbstractItemModel:
     When subclassing QtCore.QAbstractTableModel, you must implement 
     QtCore.QAbstractItemModel.rowCount(), QtCore.QAbstractItemModel.columnCount(), 
     and QtCore.QAbstractItemModel.data(). Most models will 
@@ -25,14 +25,14 @@ Sortable model:
     
 Editable model:
     Editable models need to implement QtCore.QAbstractItemModel.setData(), and 
-    implement QtCore.QAbstractItemModel.flags() to return a value containing Qt.ItemIsEditable.
+    implement QtCore.QAbstractItemModel.flags() set QtCore.Qt.ItemIsEditable.
 
 Resizable model:
-    Models that provide interfaces to resizable data structures should provide implementations 
-    of QtCore.QAbstractItemModel.insertRows(), QtCore.QAbstractItemModel.removeRows(), 
-    QtCore.QAbstractItemModel.insertColumns(), and QtCore.QAbstractItemModel.removeColumns(). 
-    And note you ahve the whole 'beginInsertRows' and 'endInsertRows' needed to make sure
-    multiple views of the same model will update appropriately.
+    Models that provide interfaces to resizable data structures should provide 
+    implementations of QtCore.QAbstractItemModel.insertRows(), 
+    QtCore.QAbstractItemModel.removeRows(), QtCore.QAbstractItemModel.insertColumns(), 
+    and QtCore.QAbstractItemModel.removeColumns(). And note you have the whole 
+    'beginInsertRows' and 'endInsertRows' needed to make sure views of the same model will update appropriately.
 
 ------            
 This script is part of the PySideSummer repository at GitHub:
@@ -52,7 +52,7 @@ MAC = "qt_mac_set_native_menubar" in dir()
 class MainForm(QtGui.QDialog):
 
     def __init__(self, parent=None):
-        super(MainForm, self).__init__(parent)
+        QtGui.QDialog.__init__(self, parent) 
 
         self.model = shipsPyside.ShipTableModel("ships.dat")  #in shipsPyside
         

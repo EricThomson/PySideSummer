@@ -4,8 +4,14 @@
 Drag and drop Qt
 http://qt-project.org/doc/qt-4.8/dnd.html
 
-Enumeration of dropactions
+Enumeration of dropaction
 http://qt-project.org/doc/qt-4.8/qt.html#DropAction-enum
+Qt::CopyAction	        0x1(1)      Copy the data to the target.
+Qt::MoveAction	        0x2(2)	    Move the data from the source to the target.
+Qt::LinkAction	        0x4(4)	    Create a link from the source to the target.
+Qt::ActionMask	        0xff(255)	 
+Qt::IgnoreAction	    0x0 (0)	    Ignore the action (do nothing with the data).
+Qt::TargetMoveAction	0x8002(32770) On Windows, used when ownership of the D&D data should be taken over by the target application, i.e., the source application should not delete the data. On X11 this value is used to do a move. TargetMoveAction is not used on the Mac.
 
 #Useful Documentation
 ##QtCore.QEvent

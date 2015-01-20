@@ -49,6 +49,7 @@ class Ship(object):
     def __eq__(self, other):
         return self.name.lower() == other.name.lower()
 
+#Ship dictionary:
 #Container stores ships in dictionary, with id as key and ship as value
 class ShipContainer(object):
 
@@ -193,9 +194,9 @@ class ShipTableModel(QtCore.QAbstractTableModel):
 #Qt.ItemIsEditable	2	It can be edited.
 #Qt.ItemIsDragEnabled	4	It can be dragged.
 #Qt.ItemIsDropEnabled	8	It can be used as a drop target.
-#Qt.ItemIsUserCheckable	16	It can be checked or unchecked by the user.
-#Qt.ItemIsEnabled	32	The user can interact with the item.
-#Qt.ItemIsTristate	64	The item is checkable with three separate states.
+#Qt.ItemIsUserCheckable 16	It can be checked or unchecked by the user.
+#Qt.ItemIsEnabled	     32	The user can interact with the item.
+#Qt.ItemIsTristate    64	The item is checkable with three separate states.
 #
 #Note that checkable items need to be given both a suitable set of flags and an 
 #initial state, indicating whether the item is checked or not. This is handled 
@@ -207,8 +208,7 @@ class ShipTableModel(QtCore.QAbstractTableModel):
     def flags(self, index):
         if not index.isValid():
             return QtCore.Qt.ItemIsEnabled
-        return QtCore.Qt.ItemFlags(
-                QtCore.QAbstractTableModel.flags(self, index) |
+        return QtCore.Qt.ItemFlags(QtCore.QAbstractTableModel.flags(self, index) |
                 QtCore.Qt.ItemIsEditable)
 
 
@@ -217,6 +217,7 @@ class ShipTableModel(QtCore.QAbstractTableModel):
             not (0 <= index.row() < len(self.ships))):
             return None
         ship = self.ships[index.row()]
+        #print "ship, type ship", ship, type(ship)
         column = index.column()
         if role == QtCore.Qt.DisplayRole:
             if column == NAME:
@@ -402,7 +403,7 @@ class ShipDelegate(QtGui.QStyledItemDelegate):
     def paint(self, painter, option, index):
         if index.column() == DESCRIPTION:
             #print "Painting description"
-            text = index.model().data(index)
+            text = index.model().data(index) #default role is display
             ##print "paint text: ", text
             palette = QtGui.QApplication.palette()
             document = QtGui.QTextDocument()
@@ -422,7 +423,7 @@ class ShipDelegate(QtGui.QStyledItemDelegate):
             document.drawContents(painter)
             painter.restore()
         else:
-            #print "In paint, not description"
+            #print "outside description"
             QtGui.QStyledItemDelegate.paint(self, painter, option, index)          
 
     def sizeHint(self, option, index):

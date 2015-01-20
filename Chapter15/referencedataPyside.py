@@ -235,7 +235,7 @@ def populateDatabase():
     categories = ("Apples", "Chocolate chip cookies", "Favra beans")
     numbers = (1, 2, 3)
     shortDescs = ("Crispy", "Yummy", "Clarice?")
-    longDescs = ("Healthy and tasty", "Never not good...", "Awkward beans for you!")
+    longDescs = ("Healthy and tasty", "Never not good...", "")
     query.prepare("""INSERT INTO favorites (category, number, shortdesc, longdesc)
                      VALUES (:category, :number, :shortdesc, :longdesc)""") 
     for category, number, shortDesc, longDesc in zip(categories, numbers, shortDescs, longDescs):

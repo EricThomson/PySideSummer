@@ -8,6 +8,9 @@ http://qt-project.org/doc/qt-4.8/model-view-programming.html
 ##Enumeration of item data roles
 http://radekp.github.io/qtmoko/api/qt.html#ItemDataRole-enum
 
+##Itemflags enumeration
+http://qt-project.org/doc/qt-4.8/qt.html#ItemFlag-enum
+
 ##Nice tutorial on QListWidget
 http://www.pythoncentral.io/pyside-pyqt-tutorial-the-qlistwidget/
 
@@ -17,12 +20,11 @@ http://github.io/docs/pyside/PySide/QtGui/QAbstractItemView.html#QtGui.QtGui.QAb
 ##Enumeration of drag and drop modes
 http://github.io/docs/pyside/PySide/QtGui/QAbstractItemView.html#QtGui.QtGui.QAbstractItemView.DragDropMode
 
-##Itemflags enumeration
-http://qt-project.org/doc/qt-4.8/qt.html#ItemFlag-enum
-
 ##Example of how Qt docs are better than pyside docs:
 http://qt-project.org/doc/qt-4.8/qabstracttablemodel.html
 
+##QStyleOption docs are better in pyqt:
+http://pyqt.sourceforge.net/Docs/PyQt4/qstyleoption.html
 
 #Useful Documentation
 
@@ -183,7 +185,6 @@ http://github.io/docs/pyside/PySide/QtGui/QTableWidgetItem.html
 ##QAbstractTableModel
 http://github.io/docs/pyside/PySide/QtCore/QAbstractTableModel.html
 
-
     The QtCore.QAbstractTableModel class provides an abstract model that can be subclassed to create table models. QtCore.QAbstractTableModel provides a standard interface for models that represent their data as a two-dimensional array of items. It is not used directly, but must be subclassed.
 
     Since the model provides a more specialized interface than QtCore.QAbstractItemModel, it is not suitable for use with tree views, although it can be used to provide data to a QtGui.QListView. If you need to represent a simple list of items, and only need a model to contain a single column of data, subclassing the QtCore.QAbstractListModel may be more appropriate.
@@ -192,7 +193,7 @@ http://github.io/docs/pyside/PySide/QtCore/QAbstractTableModel.html
 
     ###Subclassing
 
-    When subclassing QtCore.QAbstractTableModel, you must implement QtCore.QAbstractItemModel.rowCount(), QtCore.QAbstractItemModel.columnCount(), and QtCore.QAbstractItemModel.data(). Default implementations of the QtCore.QAbstractTableModel.index() and QtCore.QAbstractTableModel.parent() functions are provided by QtCore.QAbstractTableModel. Well behaved models will also implement QtCore.QAbstractItemModel.headerData(). [huh?]
+    When subclassing QtCore.QAbstractTableModel, you must implement QtCore.QAbstractItemModel.rowCount(), QtCore.QAbstractItemModel.columnCount(), and QtCore.QAbstractItemModel.data(). Default implementations of the QtCore.QAbstractTableModel.index() and QtCore.QAbstractTableModel.parent() functions are provided by QtCore.QAbstractTableModel.Most models also implement QtCore.QAbstractItemModel.headerData(). [not required officially though]
 
     Editable models need to implement QtCore.QAbstractItemModel.setData(), and implement QtCore.QAbstractItemModel.flags() to return a value containing Qt.ItemIsEditable.
 
@@ -249,7 +250,6 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QStyledItemDelegate.html
     
     Role 	                Accepted Types
     Qt.BackgroundRole 	    QtGui.QBrush
-    Qt.BackgroundColorRole 	QtGui.QColor (obsolete; use Qt.BackgroundRole instead)
     Qt.CheckStateRole 	    Qt.CheckState
     Qt.DecorationRole 	    QtGui.QIcon, QtGui.QPixmap, QtGui.QImage and QtGui.QColor
     Qt.DisplayRole 	        QtCore.QString and types with a string representation
@@ -258,7 +258,6 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QStyledItemDelegate.html
     Qt.SizeHintRole 	    QtCore.QSize
     Qt.TextAlignmentRole 	Qt.Alignment
     Qt.ForegroundRole 	    QtGui.QBrush
-    Qt.TextColorRole 	    QtGui.QColor (obsolete; use Qt.ForegroundRole instead)
 
     Editors are created with a QtGui.QItemEditorFactory ; a default static instance provided by QtGui.QItemEditorFactory is installed on all item delegates. You can set a custom factory using QtGui.QStyledItemDelegate.setItemEditorFactory() or set a new default factory with QItemEditorFactory.setDefaultFactory() It is the data stored in the item model with the EditRole that is edited. See the QtGui.QItemEditorFactory class for a more high-level introduction to item editor factories. The Color Editor Factory example shows how to create custom editors with a factory.
 
@@ -266,11 +265,11 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QStyledItemDelegate.html
 
     If the delegate does not support painting of the data types you need or you want to customize the drawing of items, you need to subclass QtGui.QStyledItemDelegate, and reimplement QtGui.QStyledItemDelegate.paint() and possibly QtGui.QStyledItemDelegate.sizeHint() The QtGui.QStyledItemDelegate.paint() function is called individually for each item, and with QtGui.QStyledItemDelegate.sizeHint(), you can specify the hint for each of them.
 
-    When reimplementing QtGui.QStyledItemDelegate.paint(), one would typically handle the datatypes one would like to draw and use the superclass implementation for other types.
+    When reimplementing QtGui.QStyledItemDelegate.paint(), one would typically handle the data types one would like to draw and use the superclass implementation for other types.
 
-    The painting of check box indicators are performed by the current style. The style also specifies the size and the bounding rectangles in which to draw the data for the different data roles. The bounding rectangle of the item itself is also calculated by the style. When drawing already supported datatypes, it is therefore a good idea to ask the style for these bounding rectangles. The QtGui.QStyle class description describes this in more detail.
+    The painting of check box indicators are performed by the current style. The style also specifies the size and the bounding rectangles in which to draw the data for the different data roles. The bounding rectangle of the item itself is also calculated by the style. When drawing already supported data types, it is therefore a good idea to ask the style for these bounding rectangles. The QtGui.QStyle class description describes this in more detail.
 
-    If you wish to change any of the bounding rectangles calculated by the style or the painting of check box indicators, you can subclass QtGui.QStyle Note, however, that the size of the items can also be affected by reimplementing QtGui.QStyledItemDelegate.sizeHint()
+    If you wish to change any of the bounding rectangles calculated by the style or the painting of check box indicators, you can subclass QtGui.QStyle. Note, however, that the size of the items can also be affected by reimplementing QtGui.QStyledItemDelegate.sizeHint()
 
     It is possible for a custom delegate to provide editors without the use of an editor item factory. In this case, the following virtual functions must be reimplemented:
 
