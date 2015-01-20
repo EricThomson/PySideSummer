@@ -31,7 +31,7 @@ Annotations include comments in code, but each chapter also contains a _README_ 
 
 **Chapter 15**:  <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter15">Databases</a>
 
-**Chapter 16**: Advanced Model/View Programming
+**Chapter 16**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter16">Advanced Model/View Programming</a>
 
 **Chapter 17**: Online Help and Internationalization
 
@@ -79,16 +79,18 @@ to:
     
     QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
     
-This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
-is. (Chapter 15)
+ This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
+ is. (Chapter 15)
+
+12. Replace obsolete Qt.TextColorRole with Qt.ForegroundRole.
+
 
 ###LICENSE
 PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
 
 
 ####To Do:
-1. Chapter 16 [translation underway]
-13. Chapter 17
+1. Chapter 17 [translation underway]
 14. Chapter 18
 15. Chapter 19
 16. Figure out answer to question about @QtCore.Slot() decorator for slots.
