@@ -35,7 +35,7 @@ At command line, enter:
 Where <input> is a number between 1 and 5 corresponding to programs specified above.
 
 -------
-Note in this and all code involving Signals/Slots, I am violating the convention 
+Note in this and all code involving Signals/Slots, I often am violating the convention 
 of giving slots the same name as their signal. I don't like this for a few reasons:
 1. Different names for different objects makes code more readable. 
 2. There are often many slots for a given signal (or many signals for a given slot).

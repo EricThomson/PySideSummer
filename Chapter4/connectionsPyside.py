@@ -11,19 +11,6 @@ Usage:
 Run the module and start a' clickin': You should see a different message for each
 button you click.
 
---------
-Useful references:
-1. Similar example using new-style signals/slots:
-http://www.blog.pythonlibrary.org/2013/04/10/pyside-connecting-multiple-widgets-to-the-same-slot/
-
-2. On partial functions:
-http://www.learnpython.org/en/Partial_functions
-http://www.techrepublic.com/article/partial-function-application-in-python/
-
-3. On lambda functions:
-http://www.diveintopython.net/power_of_introspection/lambda_functions.html
-http://www.blog.pythonlibrary.org/2010/07/19/the-python-lambda/
-
 -------
 This script is part of the PySideSummer repository at GitHub:
 https://github.com/EricThomson/PySideSummer
