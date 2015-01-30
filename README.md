@@ -79,7 +79,7 @@ to:
         site_pack_path = site.getsitepackages()[1] 
         QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
 
-Before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`.  Be sure to `import site`. Not sure how platform-dependent this problem  is. (Chapter 15)
+ Before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`.  Be sure to `import site`. Not sure how platform-dependent this problem  is. (Chapter 15)
 
 12. Replace obsolete `Qt.TextColorRole` with `Qt.ForegroundRole`.
 
@@ -89,7 +89,7 @@ Before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`.  Be sure to `import site`. No
 
         QtCore.QLocale.setDefault(QtCore.QLocale(locale)) 
 
-Where 'locale' is the value entered by the user at the command line. Note this may not be required on all systems. I needed it in Python 2.7.6, Qt 4.8.4, PySide 1.2.1 on Windows 7.
+ Where 'locale' is the value entered by the user at the command line. Note this may not be required on all systems. I needed it in Python 2.7.6, Qt 4.8.4, PySide 1.2.1 on Windows 7.
 
 15. Replace `isAlive(qObj)` function, which uses sip, with:
 
@@ -97,11 +97,11 @@ Where 'locale' is the value entered by the user at the command line. Note this m
         def isAlive(qObj):
             return shiboken.isValid(qObj)
 
-If you get the error that shiboken is not installed, in Windows command line:
+ If you get the error that shiboken is not installed, in Windows command line:
 
 	pip install --use-wheel -U shiboken
 
-Not sure what to do in Linux/Mac.
+ Not sure what to do in Linux/Mac.
 
     
 ###LICENSE
