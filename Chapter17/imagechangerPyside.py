@@ -1,12 +1,12 @@
 # coding: utf-8
 """
-imagechanger_ansPyside.py
-
-One aspect of a solution to the exercise in Chapter 6 of 
-Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
+imagechangerPyside.py
+Annotated PySide adaptation of imagechanger.pyw from Chapter 17
+of Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008)
 Book's web site: http://www.qtrac.eu/pyqtbook.html
 
-Note Summerfield provides a different solution on his web site.
+Usage: Open it up and edit, create, and save images.
+
 -------
 This script is part of the PySideSummer repository at GitHub:
 https://github.com/EricThomson/PySideSummer
@@ -21,7 +21,6 @@ import sys
 import helpformPyside
 import newimagedlgPyside
 import resource_rc  
-import resizedlgPySide
 
 __version__ = "1.0.2"
 
@@ -60,7 +59,7 @@ class MainWindow(QtGui.QMainWindow):
         self.sizeLabel.setFrameStyle(QtGui.QFrame.StyledPanel | QtGui.QFrame.Sunken)
         status.setSizeGripEnabled(False)   #this doesn't seem to do much
         status.addPermanentWidget(self.sizeLabel)
-        status.showMessage("Ready", 5000) #shows message for 5 seconds
+        status.showMessage(self.tr("Ready"), 5000) #shows message for 5 seconds
         
         '''
         If you were to create each action "by hand"
@@ -76,31 +75,28 @@ class MainWindow(QtGui.QMainWindow):
         fileNewAction.triggered.connect(self.dumSlot)
         '''
         #File actions (all use the default signal (triggered) and checkable state (False))
-        fileNewAction=self.createAction( "&New", slot=self.fileNew, shortcut=QtGui.QKeySequence.New,\
-                                        icon="filenew", tip="Create a new image")
-        fileOpenAction = self.createAction("&Open...", slot=self.fileOpen, shortcut = QtGui.QKeySequence.Open, 
-                                           icon = "fileopen", tip = "Open an existing image file")
-        fileSaveAction = self.createAction("&Save", slot=self.fileSave, shortcut = QtGui.QKeySequence.Save, 
-                                           icon="filesave", tip="Save image")                                           
-        fileSaveAsAction = self.createAction("Save &As", slot=self.fileSaveAs, icon="filesaveas",
-                                             tip="Save image as...")   
-        filePrintAction = self.createAction("&Print", slot=self.filePrint, shortcut=QtGui.QKeySequence.Print, 
-                                            icon="fileprint", tip="Print the image")
-        fileQuitAction = self.createAction("&Quit", slot=self.close, shortcut = "Ctrl+Q", 
-                                           icon="filequit", tip="Close the application")                                     
+        fileNewAction=self.createAction( self.tr("&New"), slot=self.fileNew, shortcut=QtGui.QKeySequence.New,\
+                                        icon="filenew", tip=self.tr("Create a new image"))
+        fileOpenAction = self.createAction(self.tr("&Open..."), slot=self.fileOpen, shortcut = QtGui.QKeySequence.Open, 
+                                           icon = "fileopen", tip = self.tr("Open an existing image file"))
+        fileSaveAction = self.createAction(self.tr("&Save"), slot=self.fileSave, shortcut = QtGui.QKeySequence.Save, 
+                                           icon="filesave", tip=self.tr("Save image"))                                           
+        fileSaveAsAction = self.createAction(self.tr("Save &As"), slot=self.fileSaveAs, icon="filesaveas",
+                                             tip=self.tr("Save image as..."))   
+        filePrintAction = self.createAction(self.tr("&Print"), slot=self.filePrint, shortcut=QtGui.QKeySequence.Print, 
+                                            icon="fileprint", tip= self.tr("Print the image"))
+        fileQuitAction = self.createAction(self.tr("&Quit"), slot=self.close, shortcut = self.tr("Ctrl+Q"), 
+                                           icon="filequit", tip = self.tr("Close the application"))                                     
         
         #Edit image actions
-        editInvertAction = self.createAction("&Invert", slot=self.editInvert, shortcut = "Ctrl+I", 
-                                             icon="editinvert", tip = "Invert the image's colors", 
+        editInvertAction = self.createAction(self.tr("&Invert"), slot=self.editInvert, shortcut = "Ctrl+I", 
+                                             icon="editinvert", tip = self.tr("Invert the image's colors"), 
                                              checkable=True, signal="toggled")
-        editSwapRedAndBlueAction = self.createAction("Sw&ap Red and Blue", slot = self.editSwapRedAndBlue, shortcut= "Ctrl+A", 
-                                                     icon = "editswap", tip = "Swap the image's red and blue color components", 
+        editSwapRedAndBlueAction = self.createAction(self.tr("Sw&ap Red and Blue"), slot = self.editSwapRedAndBlue, shortcut= self.tr("Ctrl+A"), 
+                                                     icon = "editswap", tip = self.tr("Swap the image's red and blue color components"), 
                                                      checkable=True, signal = "toggled")
-        editZoomAction = self.createAction("&Zoom", slot=self.editZoom,  shortcut = "Alt+Z", 
-                                           icon="editzoom", tip="Zoom the image")
-                                           
-        editResizeAction = self.createAction("&Resize", slot=self.editResize, shortcut="Ctrl+R",
-                                             icon="editresize", tip="Resize image")
+        editZoomAction = self.createAction(self.tr("&Zoom"), slot=self.editZoom,  shortcut = self.tr("Alt+Z"), 
+                                           icon="editzoom", tip= self.tr("Zoom the image"))
                                            
         #Edit mirror actions in a QActionGroup
         #The QtGui.QActionGroup class groups actions together. In some situations 
@@ -108,14 +104,14 @@ class MainWindow(QtGui.QMainWindow):
         #should be active at any one time. One simple way of achieving this is to 
         #group the actions together in an action group.                                         
         mirrorGroup = QtGui.QActionGroup(self)
-        editUnMirrorAction = self.createAction("&Unmirror", slot = self.editUnMirror, shortcut = "Ctrl+U", 
-                                               icon = "editunmirror", tip = "Unmirror the image", 
+        editUnMirrorAction = self.createAction(self.tr("&Unmirror"), slot = self.editUnMirror, shortcut = self.tr("Ctrl+U"), 
+                                               icon = "editunmirror", tip = self.tr("Unmirror the image"), 
                                                checkable=True, signal="toggled")
-        editMirrorHorizontalAction = self.createAction("Mirror &Horizontally", self.editMirrorHorizontal, shortcut = "Ctrl+H", 
-                                                       icon = "editmirrorhoriz", tip = "Horizontally mirror the image", 
+        editMirrorHorizontalAction = self.createAction(self.tr("Mirror &Horizontally"), self.editMirrorHorizontal, shortcut = self.tr("Ctrl+H"), 
+                                                       icon = "editmirrorhoriz", tip = self.tr("Horizontally mirror the image"), 
                                                        checkable = True, signal = "toggled")
-        editMirrorVerticalAction = self.createAction("Mirror &Vertically", self.editMirrorVertical, shortcut = "Ctrl+V", 
-                                                     icon = "editmirrorvert", tip = "Vertically mirror the image", 
+        editMirrorVerticalAction = self.createAction(self.tr("Mirror &Vertically"), self.editMirrorVertical, shortcut = self.tr("Ctrl+V"), 
+                                                     icon = "editmirrorvert", tip = self.tr("Vertically mirror the image"), 
                                                      checkable=True, signal = "toggled")
         mirrorGroup.addAction(editUnMirrorAction)      
         mirrorGroup.addAction(editMirrorHorizontalAction)        
@@ -123,8 +119,8 @@ class MainWindow(QtGui.QMainWindow):
         editUnMirrorAction.setChecked(True) #for exclusive group must pick one to be on    
         
         #help actions
-        helpAboutAction = self.createAction("&About Image Changer", slot=self.helpAbout)
-        helpHelpAction = self.createAction("&Help", slot=self.helpHelp, shortcut= QtGui.QKeySequence.HelpContents)
+        helpAboutAction = self.createAction(self.tr("&About Image Changer"), slot=self.helpAbout)
+        helpHelpAction = self.createAction(self.tr("&Help"), slot=self.helpHelp, shortcut= QtGui.QKeySequence.HelpContents)
                          
         #Additional Widgets
         #spinbox widget for zooming
@@ -142,7 +138,7 @@ class MainWindow(QtGui.QMainWindow):
         #addMenu(text) appends a new QMenu with title to the main menu bar. The menu bar takes 
         #ownership of the menu. 
         #File menu
-        self.fileMenu = self.menuBar().addMenu("&File")
+        self.fileMenu = self.menuBar().addMenu(self.tr("&File"))
         self.fileMenuActions = (fileNewAction, fileOpenAction,
                 fileSaveAction, fileSaveAsAction, None, filePrintAction,
                 fileQuitAction)
@@ -150,11 +146,11 @@ class MainWindow(QtGui.QMainWindow):
         self.fileMenu.aboutToShow.connect(self.updateFileMenu) #because recently opened files put in menu
                 
         #Edit menu
-        editMenu = self.menuBar().addMenu("&Edit")
-        self.addActions(editMenu, (editInvertAction, editSwapRedAndBlueAction, editZoomAction, editResizeAction))
+        editMenu = self.menuBar().addMenu(self.tr("&Edit"))
+        self.addActions(editMenu, (editInvertAction, editSwapRedAndBlueAction, editZoomAction))
         #create mirror menu and add it to editMenu
         #Submenu addition is same as main menu addition, except no need to call menuBar, only addMenu
-        mirrorMenu = editMenu.addMenu(QtGui.QIcon(":/editmirror.png"), "&Mirror")
+        mirrorMenu = editMenu.addMenu(QtGui.QIcon(":/editmirror.png"), self.tr("&Mirror"))
         self.addActions(mirrorMenu, (editUnMirrorAction, editMirrorHorizontalAction, editMirrorVerticalAction))
           
          #Help menu
@@ -231,6 +227,7 @@ class MainWindow(QtGui.QMainWindow):
         #check for dirty workspace, give option to save
         if not self.okToContinue():
             return
+        #print dir(newimagedlgPyside)
         #Dialog for making new simple image
         dialog = newimagedlgPyside.NewImageDlg(self)  #uses the gui-generated dialog
         if dialog.exec_():
@@ -250,7 +247,7 @@ class MainWindow(QtGui.QMainWindow):
             self.showImage()
             self.sizeLabel.setText("{} x {}".format(self.image.width(),
                                                       self.image.height()))
-            self.updateStatus("Created new image") #defined below
+            self.updateStatus(self.tr("Created new image")) #defined below
         
     #Loads pre-existing image
     def fileOpen(self):
@@ -262,8 +259,8 @@ class MainWindow(QtGui.QMainWindow):
                 for format in QtGui.QImageReader.supportedImageFormats()])  
         #print "fileOpen formats: ", formats
         fname = QtGui.QFileDialog.getOpenFileName(self,
-                "Image Changer - Choose Image", dir,
-                "Image files ({})".format(" ".join(formats)))[0] #[0] b/c returns 2-tuple, only need first elt
+                self.tr("Image Changer - Choose Image"), dir,
+                self.tr("Image files ({})").format(" ".join(formats)))[0] #[0] b/c returns 2-tuple, only need first elt
         #print "output of getopenfilename[0]: ", fname[0]
         if fname:
             self.loadFile(fname)  #this updates the status
@@ -305,12 +302,12 @@ class MainWindow(QtGui.QMainWindow):
         self.statusBar().showMessage(message, 5000)
         self.listWidget.addItem(message)  #logging our activity
         if self.filename:
-            self.setWindowTitle("Image Changer - {}[*]".format(
+            self.setWindowTitle(self.tr("Image Changer - {}[*]").format(
                                 os.path.basename(self.filename)))
         elif not self.image.isNull():
-            self.setWindowTitle("Image Changer - Unnamed[*]")
+            self.setWindowTitle(self.tr("Image Changer - Unnamed[*]"))
         else:
-            self.setWindowTitle("Image Changer[*]")
+            self.setWindowTitle(self.tr("Image Changer[*]"))
         #On setwindowmodified:
         #This property holds whether the document shown in the window has unsaved changes.
         #A modified window is a window whose content has changed but has not been saved to 
@@ -379,7 +376,7 @@ class MainWindow(QtGui.QMainWindow):
             image = QtGui.QImage(fname) #loading new image
             #if null, didn't load correctly
             if image.isNull():
-                message = "Failed to read {}".format(fname)
+                message = self.tr("Failed to read {}").format(fname)
             else:
                 self.addRecentFile(fname)
                 self.image = QtGui.QImage()  #reset to null image 
@@ -393,7 +390,7 @@ class MainWindow(QtGui.QMainWindow):
                 self.dirty = False
                 self.sizeLabel.setText("{} x {}".format(
                                        image.width(), image.height()))
-                message = "Loaded {}".format(os.path.basename(fname))
+                message = self.tr("Loaded {}").format(os.path.basename(fname))
             self.updateStatus(message)
        
     #When user indicates they want to quit, reimplement close event to
@@ -417,11 +414,11 @@ class MainWindow(QtGui.QMainWindow):
             return self.fileSaveAs()
         else:
             if self.image.save(self.filename, None):
-                self.updateStatus("Saved as {}".format(self.filename))
+                self.updateStatus(self.tr("Saved as {}").format(self.filename))
                 self.dirty = False
                 return True
             else:
-                self.updateStatus("Failed to save {}".format(
+                self.updateStatus(self.tr("Failed to save {}").format(
                                   self.filename))
                 return False
        
@@ -432,8 +429,8 @@ class MainWindow(QtGui.QMainWindow):
         formats = (["*.{}".format(format.data().decode("ascii").lower())
                 for format in QtGui.QImageWriter.supportedImageFormats()])
         fname = QtGui.QFileDialog.getSaveFileName(self,
-                "Image Changer - Save Image", fname,
-                "Image files ({})".format(" ".join(formats)))[0]
+                self.tr("Image Changer - Save Image"), fname,
+                self.tr("Image files ({})").format(" ".join(formats)))[0]
         if fname:
             if "." not in fname:
                 print type(fname)
@@ -475,7 +472,7 @@ class MainWindow(QtGui.QMainWindow):
         self.image.invertPixels()
         self.showImage()
         self.dirty = True
-        self.updateStatus("Inverted" if on else "Uninverted")
+        self.updateStatus(self.tr("Inverted") if on else self.tr("Uninverted"))
         
     def editSwapRedAndBlue(self, on):
         if self.image.isNull():
@@ -483,8 +480,8 @@ class MainWindow(QtGui.QMainWindow):
         self.image = self.image.rgbSwapped()
         self.showImage()
         self.dirty = True
-        self.updateStatus(("Swapped Red and Blue"
-                           if on else "Unswapped Red and Blue"))
+        self.updateStatus((self.tr("Swapped Red and Blue")
+                           if on else self.tr("Unswapped Red and Blue")))
                            
     #valuechange of spinbox is connected to showImage                                            
     def editZoom(self):
@@ -495,30 +492,6 @@ class MainWindow(QtGui.QMainWindow):
                 self.zoomSpinBox.value(), 1, 400)
         if ok:
             self.zoomSpinBox.setValue(percent)
-
-    def editResize(self):
-        if not self.okToContinue(): #is going to edit image, so give option of saving unsaved changes
-            return
-        if self.image.isNull(): #nothing to resize
-            return
-        resizeDialog = resizedlgPySide.ResizeDlg(self.image.width(), self.image.height(), self)
-        resizeDialog.show()
-        if resizeDialog.exec_():
-            newWidth, newHeight = resizeDialog.result()
-            #print "Done resizing: ", newWidth, newHeight  #dialog is hidden, not deleted, so can still get attributes
-            if newWidth == self.image.width() and newHeight== self.image.height():
-                #print "Are you afraid of change, my friend?"
-                return
-            else:
-                #print "Changing it up, eh?"
-                self.image = self.image.scaled(newWidth, newHeight, QtCore.Qt.IgnoreAspectRatio) #changes image data
-                self.dirty = True
-                self.showImage()
-                self.updateStatus("Resized image")
-                self.sizeLabel.setText("{} x {}".format(self.image.width(), self.image.height()))
-
-
-
 
     #if it was mirrored, turn them both off
     def editUnMirror(self, on):
@@ -537,8 +510,8 @@ class MainWindow(QtGui.QMainWindow):
         self.showImage()
         self.mirroredhorizontally = not self.mirroredhorizontally
         self.dirty = True
-        self.updateStatus(("Mirrored Horizontally"
-                           if on else "Unmirrored Horizontally"))
+        self.updateStatus((self.tr("Mirrored Horizontally")
+                           if on else self.tr("Unmirrored Horizontally")))
 
     def editMirrorVertical(self, on):
         if self.image.isNull():
@@ -547,17 +520,20 @@ class MainWindow(QtGui.QMainWindow):
         self.showImage()
         self.mirroredvertically = not self.mirroredvertically
         self.dirty = True
-        self.updateStatus(("Mirrored Vertically"
-                           if on else "Unmirrored Vertically"))
+        self.updateStatus((self.tr("Mirrored Vertically")
+                           if on else self.tr("Unmirrored Vertically")))
                            
     def helpAbout(self):
-        QtGui.QMessageBox.about(self, "About Image Changer",
-                """<b>Image Changer</b> v {0}
+        #If multiline quote doesn't work, perhaps 
+        #http://qt-project.org/forums/viewthread/20695
+        #careful of parens in following...
+        QtGui.QMessageBox.about(self, self.tr("About Image Changer"),
+                self.tr("""<b>Image Changer</b> v {0}
                 <p>Copyright &copy; 2008-14 Qtrac Ltd. 
                 All rights reserved.
                 <p>This application can be used to perform
                 simple image manipulations.
-                <p>Python {1} - Qt {2} - PySide {3} on {4}""".format(
+                <p>Python {1} - Qt {2} - PySide {3} on {4}""").format(
                 __version__, platform.python_version(),
                 QtCore.qVersion(), PySide.__version__,
                 platform.system()))
@@ -573,13 +549,38 @@ class MainWindow(QtGui.QMainWindow):
 		
 def main():
     app = QtGui.QApplication(sys.argv)
-    #The following are values that PySide uses to load and save application
-    #settings for use between sessions (for instance, in Windows in the registry,
-    #it will save stored information in the folder'PySideSummer/Image Changer'
-    #for settings to use next time.
+    locale1 = QtCore.QLocale()
+    print "locale1 : ", locale1.language()
+    #locale = None
+    locale = 'fr'  #set locale to france for texting
+    newLocale = QtCore.QLocale(locale)
+    QtCore.QLocale.setDefault(newLocale) #(QtCore.Q
+    #Original has this done from command line:
+#    if len(sys.argv) > 1 and "=" in sys.argv[1]:
+#        key, value = sys.argv[1].split("=")
+#        if key == "LANG" and value:
+#            print "Key is LANG, locale set to: ", value
+#            locale = value
+#            newLocale = QtCore.QLocale(locale)
+#            print newLocale.name()
+#            QtCore.QLocale.setDefault(newLocale) #(QtCore.Q
+            
+    if locale is None:
+        locale = QtCore.QLocale.system().name()
+    qtTranslator = QtCore.QTranslator()
+    if qtTranslator.load("qt_" + locale, ":/"):
+        app.installTranslator(qtTranslator)
+    appTranslator = QtCore.QTranslator()
+    if appTranslator.load("imagechanger_" + locale, ":/"):
+        app.installTranslator(appTranslator)
+        
+        
+    locale2 = QtCore.QLocale().language()
+    print "locale2 : ", locale2
+    
     app.setOrganizationName("PySideSummer")
     app.setOrganizationDomain("https://github.com/EricThomson/PySideSummer")
-    app.setApplicationName("Image Changer Revised")
+    app.setApplicationName("Image Changer")
     app.setWindowIcon(QtGui.QIcon(":/icon.png"))
     form = MainWindow()
     form.show()

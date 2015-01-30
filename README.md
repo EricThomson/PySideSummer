@@ -1,9 +1,10 @@
 ﻿#PySideSummer
-Annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is http://www.qtrac.eu/pyqtbook.html. 
+Annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is at:
+ http://www.qtrac.eu/pyqtbook.html. 
 
 The programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It has thus far been tested on Python 2.7 in Windows 7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
 
-Annotations include comments in code, but each chapter also contains a _README_ file and a _usefulStuff_ file with curated excerpts from PySide documentation and other relevant resources. When possible, we link to PySide documentation, but sometimes we have to go with Qt or PyQt when it is better.
+Annotations include comments in code, but each chapter also contains_README.md_ and _usefulStuff.md_ files (the latter contains curated excerpts from PySide documentation and links from other relevant resources). When possible, we link to PySide documentation, but sometimes we have to go with Qt or PyQt when it is better.
   
 
 ##Table of contents
@@ -33,20 +34,20 @@ Annotations include comments in code, but each chapter also contains a _README_ 
 
 **Chapter 16**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter16">Advanced Model/View Programming</a>
 
-**Chapter 17**: Online Help and Internationalization
+**Chapter 17**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter17">Online Help and Internationalization</a>
 
-**Chapter 18**: Networking
+**Chapter 18**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter18">Networking</a>
 
-**Chapter 19**: Multithreading
+**Chapter 19**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter19">Multithreading</a>
 
 ###Some of the guidelines followed
-1. Follow recommendations of Summerfield for converting to Pyside (http://www.qtrac.eu/pyqtbook.html#pyside).
+1. Follow <a href="http://www.qtrac.eu/pyqtbook.html#pyside">Summerfield's recommendations</a> for converting to Pyside, unless that would conflict with the remaining guidelines.
 
 2. Change old-style to new-style signals and slots.
 
 3. Replace `from PyQt4.QtCore import *`-type imports with `from PySide import QtGui`-type imports.
 
-4. Replace 'super' with explicit base class (this is largely a matter of taste). 
+4. At least in the first few chapters, we replace 'super' with explicit base class initialization (this is largely a matter of taste). 
 
 5. Replace `Qt.escape()`, which is deprecated, with `xml.sax.saxutils.escape()`.
 
@@ -61,9 +62,10 @@ to:
     drawPolygon(QtGui.QPolygon([QtCore.QPoint(x1, y1), QtCore.QPoint(x2,y2)]))
 	
 9. Replace deprecated `QMatrix` and `.matrix()` with 'QTransform' and '.transform()` (Chapter 12).
+
 10. Replace the single line:
 
-        self.assetView.selectionModel().currentRowChanged.connect(self.assetChanged)
+          self.assetView.selectionModel().currentRowChanged.connect(self.assetChanged)
         
  With the two lines:
 
@@ -72,27 +74,40 @@ to:
         
  This seems to be due to a bug in PySide (Chapter 15).
 
-11. I could only find sqlite by adding the following before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`:
+11. Apps could only find sqlite by adding:
 
+        site_pack_path = site.getsitepackages()[1] 
+        QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
 
-	site_pack_path = site.getsitepackages()[1] 
+Before `QtSql.QSqlDatabase.adDatabase("QSQLITE")`.  Be sure to `import site`. Not sure how platform-dependent this problem  is. (Chapter 15)
+
+12. Replace obsolete `Qt.TextColorRole` with `Qt.ForegroundRole`.
+
+13. Replace `.toPyDateTime()` with `.toPython()` 
+
+14. For Chapter 17, to get the *_fr.html pages to show up in the help pages, add:
+
+        QtCore.QLocale.setDefault(QtCore.QLocale(locale)) 
+
+Where 'locale' is the value entered by the user at the command line. Note this may not be required on all systems. I needed it in Python 2.7.6, Qt 4.8.4, PySide 1.2.1 on Windows 7.
+
+15. Replace `isAlive(qObj)` function, which uses sip, with:
+
+        from Shiboken import shiboken
+        def isAlive(qObj):
+            return shiboken.isValid(qObj)
+
+If you get the error that shiboken is not installed, in Windows command line:
+
+	pip install --use-wheel -U shiboken
+
+Not sure what to do in Linux/Mac.
+
     
-    QtGui.QApplication.addLibraryPath('{0}\\PySide\\plugins'.format(site_pack_path))
-    
- This uses the `site` package, so be sure to `import site`. Not sure how platform-dependent this problem
- is. (Chapter 15)
-
-12. Replace obsolete Qt.TextColorRole with Qt.ForegroundRole.
-
-
 ###LICENSE
-PySideSummer is under the GPL license (http://www.gnu.org/copyleft/gpl.html)
+PySideSummer is under the GPL license (<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)
 
 
 ####To Do:
-1. Chapter 17 [translation underway]
-14. Chapter 18
-15. Chapter 19
-16. Figure out answer to question about @QtCore.Slot() decorator for slots.
-17. Add _usefulStuff.md_ to earlier chapters, and make sure formatting is decent, and consistent in all chapters, and remove extensive comments from the code itself.
-18. Make sure you are consistent in removal of 'super'...
+1. Figure out answer to question about @QtCore.Slot() decorator for slots.
+2. Add _usefulStuff.md_ and README.md to earlier chapters, and make sure formatting is decent, and consistent in all chapters, and remove extensive comments from the code itself.
