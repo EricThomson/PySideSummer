@@ -4,7 +4,7 @@ Annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming wit
 
 The programs should run without mishap in your favorite Python environment, as long as you have PySide installed. It has thus far been tested on Python 2.7 in Windows 7. Unless otherwise noted, if the original name of Summerfield's script was _name.pyw_, the name of the adapted PySide script is _namePyside.py_.  
 
-Annotations include comments in code, but each chapter also contains_README.md_ and _usefulStuff.md_ files (the latter contains curated excerpts from PySide documentation and links from other relevant resources). When possible, we link to PySide documentation, but sometimes we have to go with Qt or PyQt when it is better.
+Annotations include comments in code, but each chapter also contains _README.md_ and _usefulStuff.md_ files (the latter contains curated excerpts from PySide documentation and links from other relevant resources). When possible, we link to PySide documentation, but sometimes we have to go with Qt or PyQt when it is better.
 
 Thanks to Mark Summerfield for encouragement, suggestions for improvement in innumerable places.
   
