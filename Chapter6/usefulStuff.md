@@ -1,12 +1,9 @@
 Potentially useful stuff for Chapter 6 of PySideSummer repository: https://github.com/EricThomson/PySideSummer
 
-
-#Useful links
-
-#Useful documentation
-##QtGui.QMainWindow
+# Useful documentation
+## QtGui.QMainWindow
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QMainWindow.html
-    A main window provides a framework for building an applicationís user interface. Qt has PySide.QtGui.QMainWindow and its related classes for main window management. PySide.QtGui.QMainWindow has its own layout to which you can add PySide.QtGui.QToolBars, PySide.QtGui.QDockWidgets, a PySide.QtGui.QMenuBar, and a PySide.QtGui.QStatusBar. 
+    A main window provides a framework for building an application‚Äôs user interface. Qt has PySide.QtGui.QMainWindow and its related classes for main window management. PySide.QtGui.QMainWindow has its own layout to which you can add PySide.QtGui.QToolBars, PySide.QtGui.QDockWidgets, a PySide.QtGui.QMenuBar, and a PySide.QtGui.QStatusBar. 
     The layout has a center area that can be occupied by any kind of widget. 
     
     A central widget will typically be a standard Qt widget such as a PySide.QtGui.QTextEdit or a PySide.QtGui.QGraphicsView . Custom widgets can also be used for advanced applications. You set the central widget with setCentralWidget(). 
@@ -15,7 +12,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QMainWindow.html
     ###Menubars and toolbars
     	Qt implements menus in PySide.QtGui.QMenu and PySide.QtGui.QMainWindow
     keeps them in a PySide.QtGui.QMenuBar . PySide.QtGui.QAction s are added to the 
-    menus, which display them as menu items. You can add new menus to the main windowís 
+    menus, which display them as menu items. You can add new menus to the main window‚Äôs 
     menu bar by calling menuBar() , which returns the PySide.QtGui.QMenuBar for the 
     window, and then add a menu with QMenuBar.addMenu().
     
@@ -40,12 +37,12 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QMainWindow.html
     of the widgets that should be displayed.
 
 
-##QStatus Bar 
+## QStatus Bar 
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QStatusBar.html
 
     The PySide.QtGui.QStatusBar class provides a horizontal bar suitable for 
     presenting status information. You can set a status bar with setStatusBar() , 
-    but one is created the first time statusBar() (which returns the main windowís 
+    but one is created the first time statusBar() (which returns the main window‚Äôs 
     status bar) is called. 
 
     Typically, a request for the status bar functionality occurs in relation to a 
@@ -59,7 +56,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QStatusBar.html
     slot, or set a time limit when calling PySide.QtGui.QStatusBar.showMessage().
 
 
-##QtCore.QSettings*
+## QtCore.QSettings*
 srinikom.github.io/pyside-docs/PySide/QtCore/QSettings.html
 
     The PySide.QtCore.QSettings class provides persistent platform-independent 
@@ -71,7 +68,7 @@ srinikom.github.io/pyside-docs/PySide/QtCore/QSettings.html
     a portable manner.
     
     PySide.QtCore.QSettings stores settings. Each setting consists of 
-    a PySide.QtCore.QString that specifies the settingís name (the key ) 
+    a PySide.QtCore.QString that specifies the setting‚Äôs name (the key ) 
     and a PySide.QtCore.QVariant that stores the data associated with 
     the key. To write a setting, use PySide.QtCore.QSettings.setValue(). 
     For example:
@@ -81,7 +78,7 @@ srinikom.github.io/pyside-docs/PySide/QtCore/QSettings.html
     If there already exists a setting with the same key, the existing 
     value is overwritten by the new value. 
     
-    You can get a settingís value back using PySide.QtCore.QSettings.value() :
+    You can get a setting‚Äôs value back using PySide.QtCore.QSettings.value() :
     
     	margin = int(settings.value("editor/wrapMargin"))
     
@@ -98,7 +95,7 @@ srinikom.github.io/pyside-docs/PySide/QtCore/QSettings.html
     To remove all keys, call PySide.QtCore.QSettings.clear() .       
             
         
-##QtCore.QFile
+## QtCore.QFile
 http://srinikom.github.io/pyside-docs/PySide/QtCore/QFile.html
     The PySide.QtCore.QFile class provides an interface for reading from and writing to files.
     
@@ -108,10 +105,10 @@ http://srinikom.github.io/pyside-docs/PySide/QtCore/QFile.html
     
     The file name is usually passed in the constructor, but it can be set at any time 
     using PySide.QtCore.QFile.setFileName() . PySide.QtCore.QFile expects the file 
-    separator to be ë/í regardless of operating system. The use of other separators 
-    (e.g., ëí) is not supported.
+    separator to be ‚Äò/‚Äô regardless of operating system. The use of other separators 
+    (e.g., ‚Äò‚Äô) is not supported.
     
-    You can check for a fileís existence using PySide.QtCore.QFile.exists(). Remove a file 
+    You can check for a file‚Äôs existence using PySide.QtCore.QFile.exists(). Remove a file 
     using PySide.QtCore.QFile.remove(). The file is opened with 
     PySide.QtCore.QFile.open(), closed with PySide.QtCore.QFile.close(), 
     and flushed with PySide.QtCore.QFile.flush(). 
@@ -119,7 +116,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtCore/QFile.html
     The size of the file is returned by PySide.QtCore.QFile.size().  
     
 
-##QFileDialog
+## QFileDialog
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QFileDialog.html
 
     The PySide.QtGui.QFileDialog class provides a dialog that allow users to select files 
@@ -127,16 +124,16 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QFileDialog.html
     or many files or a directory.
     
     In the following example, a modal QFileDialog is created using a static function. 
-    The dialog initially displays the contents of the ì/home/janaî directory, and displays 
-    files matching the patterns given in the string ìImage Files (*.png *.jpg *.bmp)î. 
-    The parent of the file dialog is set to self , and the window title is set to ìOpen Imageî:
+    The dialog initially displays the contents of the ‚Äú/home/jana‚Äù directory, and displays 
+    files matching the patterns given in the string ‚ÄúImage Files (*.png *.jpg *.bmp)‚Äù. 
+    The parent of the file dialog is set to self , and the window title is set to ‚ÄúOpen Image‚Äù:
          fileName = QFileDialog.getOpenFileName(self,
             tr("Open Image"), "/home/jana", tr("Image Files (*.png *.jpg *.bmp)"))
     Note using getOpenFileName returns the file path in a tuple that also includes the file 
     type list, so you can append [0] if you just want the file path.
 
 
-##QPixMap
+## QPixMap
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QPixmap.html
     There are functions to convert between PySide.QtGui.QImage and PySide.QtGui.QPixmap . 
     Typically, the PySide.QtGui.QImage class is used to load an image file, optionally 
@@ -149,7 +146,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QPixmap.html
     that enables transformation of the pixmap.
 
 
-##QImage
+## QImage
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QImage.html
     The PySide.QtGui.QImage class provides a hardware-independent image representation 
     that allows direct access to the pixel data, and can be used as a paint device.
@@ -174,7 +171,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QImage.html
     Simply call the PySide.QtGui.QImage.save() function to save a PySide.QtGui.QImage object.
 
 
-##QtGui.QPrinter
+## QtGui.QPrinter
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QPrinter.html
     The PySide.QtGui.QPrinter class is a paint device that paints on a printer.
     When printing directly to a printer on Windows or Mac OS X, PySide.QtGui.QPrinter 
