@@ -1,4 +1,4 @@
-﻿#PySideSummer
+﻿# PySideSummer
 Annotated PySide port of code from Mark Summerfield's 'Rapid GUI Programming with Python and Qt' (2008). The book's web site is at:
  http://www.qtrac.eu/pyqtbook.html. 
 
@@ -9,7 +9,7 @@ Annotations include comments in code, but each chapter also contains_README.md_ 
 Thanks to Mark Summerfield for encouragement, suggestions for improvement in innumerable places.
   
 
-##Table of contents
+## Table of contents
 **Chapter 4**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter4">Introduction to GUI Programming</a>
 
 **Chapter 5**: <a href="https://github.com/EricThomson/PySideSummer/tree/master/Chapter5">Dialogs</a>
@@ -42,7 +42,7 @@ Thanks to Mark Summerfield for encouragement, suggestions for improvement in inn
 
 **Chapter 19**: <a href = "https://github.com/EricThomson/PySideSummer/tree/master/Chapter19">Multithreading</a>
 
-###Some of the guidelines followed
+### Some of the guidelines followed
 1. Follow <a href="http://www.qtrac.eu/pyqtbook.html#pyside">Summerfield's recommendations</a> for converting to Pyside, unless that would conflict with the remaining guidelines.
 
 2. Change old-style to new-style signals and slots.
@@ -106,7 +106,7 @@ to:
 
 15. At least in the first few chapters, we replace 'super' with explicit base class initialization, just to try it both ways (see <a href="http://stackoverflow.com/questions/23981625/why-is-super-used-so-much-in-pyside-pyqt">http://stackoverflow.com/questions/23981625/why-is-super-used-so-much-in-pyside-pyqt</a>).
     
-###LICENSE
+### LICENSE
 PySideSummer is under the GPL license (<a href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>)
 
 
