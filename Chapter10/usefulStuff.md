@@ -1,6 +1,6 @@
 ﻿Things that might be useful when working through Chapter 10 of PySideSummer repository (https://github.com/EricThomson/PySideSummer)
 
-#Useful links
+# Useful links
 Drag and drop Qt
 http://qt-project.org/doc/qt-4.8/dnd.html
 
@@ -13,8 +13,8 @@ Qt::ActionMask	        0xff(255)
 Qt::IgnoreAction	    0x0 (0)	    Ignore the action (do nothing with the data).
 Qt::TargetMoveAction	0x8002(32770) On Windows, used when ownership of the D&D data should be taken over by the target application, i.e., the source application should not delete the data. On X11 this value is used to do a move. TargetMoveAction is not used on the Mac.
 
-#Useful Documentation
-##QtCore.QEvent
+# Useful Documentation
+## QtCore.QEvent
 http://github.io/docs/pyside/PySide/QtCore/QEvent.html
 
     The QtCore.QEvent class is the base class of all event classes. Event objects contain event parameters.
@@ -29,7 +29,7 @@ http://github.io/docs/pyside/PySide/QtCore/QEvent.html
 
     Subclasses of QtCore.QEvent contain additional parameters that describe the particular event.
 
-	###QtCore.QEvent.Type
+	### QtCore.QEvent.Type
     This enum type defines the valid event types in Qt. The event types and the specialized classes for each type are as follows (prefix of QEvent, so for instance first is QEvent.None)
     Constant 							Description
     None 								Not an event.
@@ -166,7 +166,7 @@ http://github.io/docs/pyside/PySide/QtCore/QEvent.html
     For convenience, you can use the QtCore.QEvent.registerEventType() function to register and reserve a custom event type for your application. Doing so will allow you to avoid accidentally re-using a custom event type already in use elsewhere in your application.
 
     
-##QtCore.QMimeData
+## QtCore.QMimeData
 http://srinikom.github.io/pyside-docs/PySide/QtCore/QMimeData.html
 
     The QtCore.QMimeData class provides a container for data that records information about its MIME (_Multipurpose Internet Mail Extensions_) type.
@@ -187,7 +187,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtCore/QMimeData.html
     hasColor() 	colorData()     setColorData() 	application/x-color
     
 
-    ###Platform-Specific MIME Types
+    ### Platform-Specific MIME Types
 
     On Windows, QtCore.QMimeData.formats() will also return custom formats available in the MIME data, using the x-qt-windows-mime subtype to indicate that they represent data in non-standard formats. The formats will take the following form:
 
@@ -200,7 +200,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtCore/QMimeData.html
 
     The value declaration of each format describes the way in which the data is encoded.
     
-##QtGui.QClipboard
+## QtGui.QClipboard
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QClipboard.html
 
     The QtGui.QClipboard class provides access to the window system clipboard. The clipboard offers a simple mechanism to copy and paste data between applications. QtGui.QClipboard supports the same data types that QtGui.QDrag does, and uses similar mechanisms. See the Drag and Drop Qt page (link is above under Useful Links).
@@ -234,7 +234,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QClipboard.html
     On Windows, the MIME format does not always map directly to the clipboard formats. Qt provides QWindowsMime to map clipboard formats to open-standard MIME formats. 
     
     
-##QtGui.QDrag
+## QtGui.QDrag
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QDrag.html
 
     The QtGui.QDrag class provides support for MIME-based drag and drop data transfer. Drag and drop is an intuitive way for users to copy or move data around in an application, and is used in many desktop environments as a mechanism for copying data between applications. Drag and drop support in Qt is centered around the QtGui.QDrag class that handles most of the details of a drag and drop operation.
@@ -257,7 +257,7 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QDrag.html
     QtGui.QDrag only deals with the drag and drop operation itself. It is up to the developer to decide when a drag operation begins, and how a QtGui.QDrag object should be constructed and used. For a given widget, it is often necessary to reimplement QtGui.QWidget.mousePressEvent() to determine whether the user has pressed a mouse button, and reimplement QtGui.QWidget.mouseMoveEvent() to check whether a QtGui.QDrag is required.
 
 
-##QtGui.QColor
+## QtGui.QColor
 http://srinikom.github.io/pyside-docs/PySide/QtGui/QColor.html
 
     The QtGui.QColor class provides colors based on RGB, HSV or CMYK values.
@@ -276,13 +276,13 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QColor.html
 
     QtGui.QColor is platform and device independent. The QColormap class maps the color to the hardware. For more information about painting in general, see the Paint System documentation.
 
-    ###Integer vs. Floating Point Precision
+    ### Integer vs. Floating Point Precision
 
     QtGui.QColor supports floating point precision and provides floating point versions of all the color components functions, e.g. QtGui.QColor.getRgbF() , QtGui.QColor.hueF() and QtGui.QColor.fromCmykF() . Note that since the components are stored using 16-bit integers, there might be minor deviations between the values set using, for example, QtGui.QColor.setRgbF() and the values returned by the QtGui.QColor.getRgbF() function due to rounding.
 
     While the integer based functions take values in the range 0-255 (except QtGui.QColor.hue() which must have values within the range 0-359), the floating point functions accept values in the range 0.0 - 1.0.
 
-    ###Alpha-Blended Drawing
+    ### Alpha-Blended Drawing
 
     QtGui.QColor also support alpha-blended outlining and filling. The alpha channel of a color specifies the transparency effect, 0 represents a fully transparent color, while 255 represents a fully opaque color. For example:
 
@@ -298,18 +298,18 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QColor.html
 
     The alpha channel of a color can be retrieved and set using the QtGui.QColor.alpha() and QtGui.QColor.setAlpha() functions if its value is an integer, and QtGui.QColor.alphaF() and QtGui.QColor.setAlphaF() if its value is qreal (double). By default, the alpha-channel is set to 255 (opaque). To retrieve and set all the RGB color components (including the alpha-channel) in one go, use the QtGui.QColor.rgba() and QtGui.QColor.setRgba() functions.
 
-    ###Predefined Colors
+    ### Predefined Colors
 
     There are 20 predefined QColors described by the Qt.GlobalColor enum, including black, white, primary and secondary colors, darker versions of these colors and three shades of gray. QtGui.QColor also recognizes a variety of color names; the static QtGui.QColor.colorNames() function returns a QtCore.QStringList color names that QtGui.QColor knows about.
 
-    ####Color name enum
+    #### Color name enum
     http://qt-project.org/doc/qt-4.8/qt.html#GlobalColor-enum
     white, black, gray, lightGray, darkGray
     red, darkRed, green, darkGreen, yellow, darkYellow, blue, darkBlue,
     cyan, darkCyan, magenta, darkMagenta
 
 
-    ###The HSV Color Model
+    ### The HSV Color Model
 
     The RGB model is hardware-oriented. Its representation is close to what most monitors show. In contrast, HSV represents color in a way more suited to the human perception of color. For example, the relationships “stronger than”, “darker than”, and “the opposite of” are easily expressed in HSV but are much harder to express in RGB.
 
@@ -327,11 +327,11 @@ http://srinikom.github.io/pyside-docs/PySide/QtGui/QColor.html
 
     In addition to the standard HSV model, Qt provides an alpha-channel to feature alpha-blended drawing .
 
-    ###The HSL Color Model
+    ### The HSL Color Model
 
     HSL is similar to HSV. Instead of value parameter from HSV, HSL has the lightness parameter. The lightness parameter goes from black to color and from color to white. If you go outside at the night it's black or dark gray. At day its colorful but if you look in a really strong light a things they are going to white and wash out.
 
-    ###The CMYK Color Model
+    ### The CMYK Color Model
 
     While the RGB and HSV color models are used for display on computer monitors, the CMYK model is used in the four-color printing process of printing presses and some hard-copy devices.
 
